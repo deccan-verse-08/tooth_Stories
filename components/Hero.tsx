@@ -1,107 +1,156 @@
+
 "use client";
-import React from "react";
-import { ArrowRight, ShieldCheck, Star } from "lucide-react";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, ShieldCheck, Star, Award } from "lucide-react";
+
+/* ================= VARIANTS ================= */
+
+const container: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+/* ================= COMPONENT ================= */
 
 export default function Hero() {
   return (
-    <section className="relative h-[calc(100vh-80px)] min-h-[650px] flex items-center bg-[#FFFCFA] overflow-hidden">
-      {/* Background Subtle Accents */}
-      <div className="absolute top-0 right-0 w-[40%] h-full bg-[#C21E56]/[0.02] hidden lg:block" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full border border-[#D4AF37]/10" />
+    <section className="relative min-h-[100svh] bg-[#FFFCFA] overflow-hidden">
+      {/* Soft background grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left: Text Content */}
-        <div className="flex flex-col space-y-8 lg:space-y-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#C21E56]">
-                Premium Dental Care
-              </span>
-              <div className="flex -space-x-1">
-                {[1, 2, 3].map((s) => (
-                  <Star
-                    key={s}
-                    size={10}
-                    className="fill-[#D4AF37] text-[#D4AF37]"
-                  />
-                ))}
-              </div>
+      <div className="relative max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-20 items-center">
+        {/* ================= LEFT CONTENT ================= */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col gap-10"
+        >
+          <motion.div variants={item} className="flex items-center gap-4">
+            <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-[#C21E56]">
+              Trusted Dental Studio
+            </span>
+            <div className="flex gap-1">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Star
+                  key={i}
+                  size={12}
+                  className="fill-[#D4AF37] text-[#D4AF37]"
+                />
+              ))}
             </div>
+          </motion.div>
 
-            <h1 className="text-6xl md:text-7xl lg:text-[90px] font-serif text-gray-900 leading-[0.95] tracking-tight">
-              Design your <br />
-              <span className="italic font-light text-[#C21E56]">
-                Perfect Smile.
-              </span>
-            </h1>
+          <motion.h1
+            variants={item}
+            className="text-5xl md:text-6xl lg:text-[78px] font-serif text-gray-900 leading-[1.05]"
+          >
+            Dentistry Crafted
+            <br />
+            <span className="italic text-[#C21E56] font-light">
+              With Precision & Care
+            </span>
+          </motion.h1>
 
-            <p className="text-lg text-gray-500 font-light leading-relaxed max-w-md">
-              Experience the harmony of medical precision and artistic beauty at
-              Tooth Stories. Your journey to a confident smile starts here.
-            </p>
-          </div>
+          <motion.p
+            variants={item}
+            className="max-w-md text-lg text-gray-500 font-light leading-relaxed"
+          >
+            At Tooth Stories, we combine advanced dental science with a calm,
+            patient-first approach — delivering smiles that feel as good as they
+            look.
+          </motion.p>
 
-          {/* Action Area */}
-          <div className="flex flex-wrap items-center gap-8">
-            <a
+          <motion.div variants={item} className="flex items-center gap-8">
+            <Link
               href="/contact"
-              className="bg-[#C21E56] text-white px-10 py-5 rounded-full font-bold text-[11px] tracking-widest uppercase transition-all hover:bg-[#A01845] hover:shadow-2xl hover:shadow-[#C21E56]/30 active:scale-95"
+              className="px-10 py-5 rounded-full bg-[#C21E56] text-white text-[11px] font-bold tracking-widest uppercase hover:bg-[#A01845] hover:shadow-xl hover:shadow-[#C21E56]/30 transition-all"
             >
-              Book Appointment
-            </a>
+              Book Consultation
+            </Link>
 
-            <a
+            <Link
               href="/services"
-              className="flex items-center gap-3 text-gray-900 font-bold text-[11px] tracking-widest uppercase group"
+              className="flex items-center gap-3 text-gray-900 text-[11px] font-bold tracking-widest uppercase group"
             >
-              Our Services
-              <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-[#C21E56] group-hover:border-[#C21E56] group-hover:text-white transition-all duration-300">
+              View Treatments
+              <span className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 group-hover:bg-[#C21E56] group-hover:text-white group-hover:border-[#C21E56] transition-all">
                 <ArrowRight size={16} />
-              </div>
-            </a>
-          </div>
+              </span>
+            </Link>
+          </motion.div>
 
-          {/* Minimal Trust Bar */}
-          <div className="flex items-center gap-10 pt-4 opacity-70">
+          {/* Trust indicators */}
+          <motion.div
+            variants={item}
+            className="flex items-center gap-10 pt-6 text-gray-400"
+          >
             <div className="flex items-center gap-3">
-              <ShieldCheck size={20} className="text-[#D4AF37]" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                FDA Approved
+              <ShieldCheck size={18} className="text-[#D4AF37]" />
+              <span className="text-[10px] uppercase tracking-widest font-bold">
+                Certified & Safe
               </span>
             </div>
-            <div className="h-6 w-px bg-gray-200" />
             <div className="flex items-center gap-3">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-bold">
-                100% Painless
+              <Award size={18} className="text-[#D4AF37]" />
+              <span className="text-[10px] uppercase tracking-widest font-bold">
+                Expert Dentists
               </span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Right: Modern Framed Image */}
-        <div className="relative hidden lg:flex justify-center items-center">
-          {/* Main Image with Modern Arch Shape */}
-          <div className="relative w-full aspect-[4/5] max-w-[480px] rounded-t-full rounded-b-2xl overflow-hidden border-[1px] border-gray-100 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)]">
-            <img
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1500"
-              className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
-              alt="Premium Dental Studio"
+        {/* ================= RIGHT IMAGE ================= */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="relative"
+        >
+          {/* Rectangular Image */}
+          <div className="relative w-full max-w-[520px] aspect-[3/4] overflow-hidden rounded-2xl border border-gray-200 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.15)]">
+            <Image
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09"
+              alt="Dental Clinic"
+              fill
+              priority
+              className="object-cover"
             />
           </div>
 
-          {/* Decorative Floating Element */}
-          <div className="absolute -bottom-8 -left-8 bg-white/90 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-white max-w-[200px]">
-            <p className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-widest mb-2">
-              Philosophy
+          {/* Floating stat card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="absolute -bottom-10 -left-10 bg-white/90 backdrop-blur-xl p-6 rounded-2xl border border-gray-100 shadow-xl"
+          >
+            <p className="text-[10px] uppercase tracking-widest font-bold text-[#C21E56]">
+              Patient Promise
             </p>
-            <p className="text-sm font-serif italic text-gray-800">
-              "Every smile is a masterpiece waiting to be told."
+            <p className="mt-2 text-sm text-gray-700 font-light">
+              Gentle treatments. <br />
+              Honest guidance. <br />
+              Lasting results.
             </p>
-          </div>
-
-          {/* Minimal Gold Ring */}
-          <div className="absolute -top-10 -right-10 w-40 h-40 border border-[#D4AF37]/20 rounded-full -z-10" />
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
