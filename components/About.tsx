@@ -76,7 +76,7 @@ export default function About() {
                             atmosphere to create an unparalleled dental experience.
                         </p>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            Our team of board-certified specialists is dedicated to crafting beautiful,
+                            Our team of board certified specialists is dedicated to crafting beautiful,
                             healthy smiles while ensuring your complete comfort throughout every visit.
                             From routine cleanings to complex smile makeovers, we treat each patient like royalty.
                         </p>
