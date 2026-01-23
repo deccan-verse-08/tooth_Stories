@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone } from "lucide-react";
+
+import { Menu, X, Phone, MapPin } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -90,6 +91,25 @@ export default function Header() {
           {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </nav>
+      {/* Location Strip */}
+      <div className="w-full bg-[#edac81] border-t border-[#D4AF37]/20">
+        <div className="max-w-7xl mx-auto px-6 h-8 flex items-center justify-center md:justify-between text-[11px] tracking-wide">
+          <div className="flex items-center gap-2 text-gray-800">
+            <MapPin size={12} className="text-[#f63c64]" />
+            <span className="font-medium">
+              Tooth Stories · BARCODE, Rama Group Commercial Mall, Pune
+            </span>
+          </div>
+
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            className="hidden md:inline-block text-[rgb(32,30,30)] font-bold uppercase tracking-widest text-[10px] hover:underline"
+          >
+            Get Directions
+          </a>
+        </div>
+      </div>
 
       {/* Mobile Menu */}
       <div
