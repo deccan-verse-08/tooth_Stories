@@ -71,7 +71,7 @@ export default function About() {
                             <span className="text-[#C21E56]">Royal Treatment</span>
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            At ToothStories, we believe every smile has a unique story to tell. Founded in 2010,
+                            At Tooth Stories, we believe every smile has a unique story to tell. Founded in 2010,
                             our luxury dental clinic combines cutting-edge technology with a warm, welcoming
                             atmosphere to create an unparalleled dental experience.
                         </p>
