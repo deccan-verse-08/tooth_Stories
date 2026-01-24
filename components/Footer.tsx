@@ -93,20 +93,23 @@ export default function Footer() {
 
             <div className="space-y-5">
               <h4 className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#D4AF37]">
-                The Studio
+                Visit Us
               </h4>
               <div className="text-sm text-gray-400 space-y-3">
                 <p className="leading-relaxed">
-                  123 Elegance Blvd,
-                  <br />
-                  Manhattan, NY 10001
+                  Tooth Stories, 3rd Floor, Barcode,<br /> Borate-Jambhulkar Chowk, B 319,<br /> Shiv Rd, Bhoradewadi, Moshi, <br />Pimpri-Chinchwad, Maharashtra 412105
                 </p>
                 <a
-                  href="tel:+1555786GOLD"
+                  href="tel:+917709519507"
                   className="flex items-center gap-2 hover:text-white font-bold transition-colors pt-1"
                 >
-                  <Phone size={14} className="text-[#D4AF37]" /> +1 (555)
-                  786-GOLD
+                  <Phone size={14} className="text-[#D4AF37]" /> +91-7709519507
+                  
+                </a>
+                <a href="tel:+918793151502"
+                className="flex items-center gap-2 hover:text-white font-bold transition-colors pt-1"
+                >
+                  <Phone size={14} className="text-[#D4AF37]" /> +91-8793151502
                 </a>
               </div>
             </div>

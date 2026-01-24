@@ -129,7 +129,7 @@ export default function ContactForm() {
                     </div>
                     <div>
                       <p className="text-white/60 text-sm">Visit Us</p>
-                      <p className="font-semibold">123 Elegance Blvd, NY</p>
+                      <p className="font-semibold">3rd Floor, Barcode, Borate-Jambhulkar Chowk, B 319, Shiv Rd, Bhoradewadi, Moshi, Pimpri-Chinchwad, Maharashtra 412105</p>
                     </div>
                   </div>
                 </div>

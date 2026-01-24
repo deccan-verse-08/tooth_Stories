@@ -47,7 +47,7 @@ export default function ContactPage() {
                 {
                   icon: <Phone size={18} />,
                   title: "Call",
-                  value: "+91 98765 43210",
+                  value: "+91 87931 51502",
                 },
                 {
                   icon: <Mail size={18} />,
@@ -135,9 +135,9 @@ export default function ContactPage() {
           />
 
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-xl px-8 py-6 rounded-3xl border border-white/10">
-            <p className="text-sm text-gray-300">102, Luxury Plaza, MG Road</p>
+            <p className="text-sm text-gray-300">BARCODE, Rama Group Commercial Mall, Pune</p>
             <a
-              href="https://maps.google.com"
+              href="https://maps.app.goo.gl/RWk3p71UPWVTgeLz7"
               target="_blank"
               className="mt-3 inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#D4AF37]"
             >

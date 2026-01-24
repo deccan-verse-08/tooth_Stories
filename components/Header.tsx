@@ -47,11 +47,11 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col">
-            <h1 className="text-2xl md:text-3xl font-serif font-black tracking-tighter text-gray-900 leading-none">
+            {/* <h1 className="text-2xl md:text-3xl font-serif font-black tracking-tighter text-gray-900 leading-none">
               TOOTH<span className="text-[#D4AF37]">STORIES</span>
-            </h1>
+            </h1> */}
             <span className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-gray-400 font-bold mt-1">
-              Dental Excellence
+              Your Smile,<br /> Our Story
             </span>
           </div>
         </Link>
@@ -102,7 +102,7 @@ export default function Header() {
           </div>
 
           <a
-            href="https://maps.google.com"
+            href="https://maps.app.goo.gl/Ui7rGAao72jSFx5Z6"
             target="_blank"
             className="hidden md:inline-block text-[rgb(32,30,30)] font-bold uppercase tracking-widest text-[10px] hover:underline"
           >
