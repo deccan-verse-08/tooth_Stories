@@ -90,7 +90,7 @@ export default function Gallery() {
             </span>
             <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-tight">
               A Legacy of <br />
-              <span className="italic font-light text-[#D4AF37]">
+              <span className="font-light text-[#D4AF37]">
                 Confident Smiles
               </span>
             </h2>

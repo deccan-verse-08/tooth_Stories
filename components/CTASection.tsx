@@ -23,9 +23,9 @@ export default function CTA() {
                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[#D4AF37] block mb-4 sm:mb-6">
                   Ready for your story to begin?
                 </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif text-gray-900 leading-[1.15] sm:leading-[1.1] mb-5 sm:mb-6 md:mb-8">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif text-gray-900 leading-[1.15] sm:leading-[1.1] mb-5 sm:mb-6 md:mb-8">
                   Start Your Journey to a <br className="hidden sm:block" />
-                  <span className="italic font-light text-[#C21E56]">
+                  <span className="font-light text-[#C21E56]">
                     Radiant New Smile
                   </span>
                 </h2>
@@ -76,7 +76,7 @@ export default function CTA() {
                   <div className="text-white text-sm sm:text-base font-light space-y-1">
                     <div className="flex justify-between border-b border-white/10 pb-1">
                       <span>Mon — Fri</span>
-                      <span>9:00 - 19:00</span>
+                      <span>9:00 - 10:00</span>
                     </div>
                     <div className="flex justify-between border-b border-white/10 pb-1">
                       <span>Saturday</span>

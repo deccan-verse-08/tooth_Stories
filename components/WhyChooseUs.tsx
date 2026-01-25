@@ -94,7 +94,7 @@ export default function WhyChooseUs() {
           </p>
           <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-tight">
             Comprehensive Dental Care <br />
-            <span className="italic text-[#C21E56]">You Can Trust</span>
+            <span className="text-[#C21E56]">You Can Trust</span>
           </h2>
           <div className="w-20 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-8" />
         </motion.div>

@@ -38,9 +38,9 @@ export default function AboutPage() {
               <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#C21E56] mb-3 block">
                 The Hands Behind The Craft
               </span>
-              <h1 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight tracking-tighter">
+              <h1 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight ">
                 Excellence{" "}
-                <span className="italic font-light text-[#D4AF37]">
+                <span className="font-light text-[#D4AF37]">
                   Meets Empathy
                 </span>
               </h1>
@@ -102,7 +102,7 @@ export default function AboutPage() {
           <div className="max-w-5xl mx-auto">
             <div className="flex flex-col md:flex-row items-center justify-between gap-10">
               <div className="text-center md:text-left">
-                <h2 className="text-3xl font-serif text-gray-900 italic mb-2">
+                <h2 className="text-3xl font-serif text-gray-900 mb-2">
                   Beyond Dentistry
                 </h2>
                 <p className="text-gray-400 font-light text-xs leading-relaxed max-w-xs">
