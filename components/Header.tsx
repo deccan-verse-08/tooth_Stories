@@ -31,7 +31,7 @@ export default function Header() {
         scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-6 h-15 flex justify-between items-center">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-4 group">
           {/* Logo Image Container - Increased Size & No Pink BG */}
@@ -51,7 +51,8 @@ export default function Header() {
               TOOTH<span className="text-[#D4AF37]">STORIES</span>
             </h1> */}
             <span className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-gray-400 font-bold mt-1">
-              Your Smile,<br /> Our Story
+              Your Smile,
+              <br /> Our Story
             </span>
           </div>
         </Link>
