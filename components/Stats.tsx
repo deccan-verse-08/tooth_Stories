@@ -78,7 +78,7 @@ export default function Stats() {
     const stats = [
         { icon: <Award size={28} />, value: 15, suffix: '+', label: 'Years Experience', delay: 0 },
         { icon: <Users size={28} />, value: 10000, suffix: '+', label: 'Happy Smiles', delay: 150 },
-        { icon: <Clock size={28} />, value: 50, suffix: '+', label: 'Expert Dentists', delay: 300 },
+        { icon: <Clock size={28} />, value: 2, suffix: '+', label: 'Expert Dentists', delay: 300 },
         { icon: <Heart size={28} />, value: 98, suffix: '%', label: 'Patient Satisfaction', delay: 450 },
     ];
 
