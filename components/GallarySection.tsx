@@ -230,6 +230,26 @@ const images = [
     span: "md:col-span-1 md:row-span-1",
     alt: "Kids Dentistry",
   },
+  {
+    src: "/Image1OfBoth.jpeg",
+    span: "md:col-span-1 md:row-span-1",
+    alt: "Kids Dentistry",
+  },
+  // I commented out this as they aren't looking well  {
+  //   src: "/Image2OfBoth.jpeg",
+  //   span: "md:col-span-1 md:row-span-1",
+  //   alt: "Kids Dentistry",
+  // },
+  // {
+  //   src: "/Image3OfBoth.jpeg",
+  //   span: "md:col-span-1 md:row-span-1",
+  //   alt: "Kids Dentistry",
+  // },
+  // {
+  //   src: "/Image4OfBoth.jpeg",
+  //   span: "md:col-span-1 md:row-span-1",
+  //   alt: "Kids Dentistry",
+  // },
 ];
 
 export default function Gallery() {
