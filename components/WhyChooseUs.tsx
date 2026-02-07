@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import {
   ShieldCheck,
@@ -311,16 +312,19 @@ export default function WhyChooseUs() {
                 Join thousands of satisfied patients who've chosen excellence
                 for their dental care
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group px-10 py-4 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-full font-bold text-xs tracking-[0.3em] uppercase shadow-2xl shadow-[#C21E56]/30 hover:shadow-[#C21E56]/50 transition-all duration-300"
-              >
-                <span className="flex items-center gap-3">
-                  Schedule Your Visit
-                  <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                </span>
-              </motion.button>
+
+              <Link href="/contact" className="inline-block">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group px-10 py-4 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-full font-bold text-xs tracking-[0.3em] uppercase shadow-2xl shadow-[#C21E56]/30 hover:shadow-[#C21E56]/50 transition-all duration-300"
+                >
+                  <span className="flex items-center gap-3">
+                    Schedule Your Visit
+                    <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                  </span>
+                </motion.div>
+              </Link>
             </div>
           </div>
         </motion.div>
