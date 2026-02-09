@@ -210,7 +210,7 @@ export default function CTA() {
                   </div>
                   <p className="text-white text-base md:text-lg font-light leading-relaxed pl-6 border-l-2 border-[#D4AF37]/30">
                     Tooth Stories Dental Clinic<br />
-                    B 319, Barcode, <br />
+                    B 319, 3rd Floor, Barcode, <br />
                     Borate-Jambhulkar Chowk, <br />
                     Shiv Rd, Bhoradewadi, Moshi, <br />
                     Pimpri-Chinchwad, Maharashtra.
