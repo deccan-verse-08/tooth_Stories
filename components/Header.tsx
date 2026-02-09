@@ -28,8 +28,9 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
-        }`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
+      }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-15 flex justify-between items-center">
         {/* Logo Section */}
@@ -64,10 +65,11 @@ export default function Header() {
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className={`text-sm font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-1 ${pathname === item.href
+                  className={`text-sm font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-1 ${
+                    pathname === item.href
                       ? "text-[#D4AF37] border-b-2 border-[#D4AF37] pb-1"
                       : "text-gray-500 hover:text-gray-900"
-                    }`}
+                  }`}
                 >
                   {item.name}
                   {item.name === "Services" && (
@@ -141,7 +143,7 @@ export default function Header() {
         </button>
       </nav>
       {/* Location Strip */}
-      <div className="w-full bg-[#edac81] border-t border-[#D4AF37]/20">
+      {/* <div className="w-full bg-[#edac81] border-t border-[#D4AF37]/20">
         <div className="max-w-7xl mx-auto px-6 h-8 flex items-center justify-center md:justify-between text-[11px] tracking-wide">
           <div className="flex items-center gap-2 text-gray-800">
             <MapPin size={12} className="text-[#f63c64]" />
@@ -158,14 +160,15 @@ export default function Header() {
             Get Directions
           </a>
         </div>
-      </div>
+      </div> */}
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 right-0 bg-white border-t transition-all duration-500 overflow-hidden ${isMenuOpen
+        className={`absolute top-full left-0 right-0 bg-white border-t transition-all duration-500 overflow-hidden ${
+          isMenuOpen
             ? "max-h-screen opacity-100 shadow-xl"
             : "max-h-0 opacity-0"
-          }`}
+        }`}
       >
         <div className="p-8 space-y-6">
           {navItems.map((item) => (
