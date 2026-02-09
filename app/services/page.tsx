@@ -48,7 +48,7 @@ const item = {
     filter: "blur(0px)",
     transition: {
       duration: 0.9,
-      ease: [0.25, 0.4, 0.25, 1],
+      ease: [0.25, 0.4, 0.25, 1] as const,
     },
   },
 };
