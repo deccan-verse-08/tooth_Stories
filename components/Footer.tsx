@@ -100,16 +100,11 @@ export default function Footer() {
                   Tooth Stories, 3rd Floor, Barcode,<br /> Borate-Jambhulkar Chowk, B 319,<br /> Shiv Rd, Bhoradewadi, Moshi, <br />Pimpri-Chinchwad, Maharashtra 412105
                 </p>
                 <a
-                  href="tel:+917709519507"
+                  href="tel:+917666419396"
                   className="flex items-center gap-2 hover:text-white font-bold transition-colors pt-1"
                 >
-                  <Phone size={14} className="text-[#D4AF37]" /> +91-7709519507
+                  <Phone size={14} className="text-[#D4AF37]" /> +91 76664 19396
                   
-                </a>
-                <a href="tel:+918793151502"
-                className="flex items-center gap-2 hover:text-white font-bold transition-colors pt-1"
-                >
-                  <Phone size={14} className="text-[#D4AF37]" /> +91-8793151502
                 </a>
               </div>
             </div>
