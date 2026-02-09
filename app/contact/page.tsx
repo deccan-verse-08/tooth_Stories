@@ -58,8 +58,8 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: "Call Us",
-      value: "+91 87931 51502",
-      action: "tel:+918793151502",
+      value: "+91 76664 19396",
+      action: "tel:+917666419396",
       gradient: "from-emerald-500 to-teal-600",
       bgGradient: "from-emerald-50 to-teal-50",
       shadow: "emerald-500/20",
