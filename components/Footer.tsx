@@ -97,7 +97,7 @@ export default function Footer() {
               </h4>
               <div className="text-sm text-gray-400 space-y-3">
                 <p className="leading-relaxed">
-                  Tooth Stories, 3rd Floor, Barcode,<br /> Borate-Jambhulkar Chowk, B 319,<br /> Shiv Rd, Bhoradewadi, Moshi, <br />Pimpri-Chinchwad, Maharashtra 412105
+                  Tooth Stories Dental Clinic,<br /> B 319, 3rd Floor, Barcode,<br /> Borate-Jambhulkar Chowk,<br /> Shiv Rd, Bhoradewadi, Moshi, <br />Pimpri-Chinchwad, Maharashtra <br /> 412105.
                 </p>
                 <a
                   href="tel:+917666419396"

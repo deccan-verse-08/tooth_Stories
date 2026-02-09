@@ -209,8 +209,11 @@ export default function CTA() {
                     </h4>
                   </div>
                   <p className="text-white text-base md:text-lg font-light leading-relaxed pl-6 border-l-2 border-[#D4AF37]/30">
-                    Tooth Stories <br />
-                    Barcode, Rama Group Commercial Mall, Pune
+                    Tooth Stories Dental Clinic<br />
+                    B 319, 3rd Floor, Barcode, <br />
+                    Borate-Jambhulkar Chowk, <br />
+                    Shiv Rd, Bhoradewadi, Moshi, <br />
+                    Pimpri-Chinchwad, Maharashtra.
                   </p>
                 </motion.div>
 
@@ -233,15 +236,15 @@ export default function CTA() {
                   </div>
                   <div className="text-white text-sm md:text-base font-light space-y-2 pl-6">
                     <div className="flex justify-between items-center pb-2 border-b border-white/10">
-                      <span>Mon — Fri</span>
+                      <span>Mon - Sat (Morning)</span>
                       <span className="text-[#D4AF37] font-medium">
-                        9:00 - 10:00
+                        9:00 AM - 5:00 PM
                       </span>
                     </div>
                     <div className="flex justify-between items-center pb-2 border-b border-white/10">
-                      <span>Saturday</span>
+                      <span>Mon - Sat (Evening)</span>
                       <span className="text-[#D4AF37] font-medium">
-                        10:00 - 15:00
+                        6:00 PM - 9:00 PM
                       </span>
                     </div>
                     <div className="flex justify-between items-center pb-2">

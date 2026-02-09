@@ -52,8 +52,7 @@ export default function Header() {
               TOOTH<span className="text-[#D4AF37]">STORIES</span>
             </h1> */}
             <span className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-gray-400 font-bold mt-1">
-              Your Smile,
-              <br /> Our Story
+              A story behind <br /> every smile
             </span>
           </div>
         </Link>

@@ -88,8 +88,8 @@ export default function ContactPage() {
   ];
 
   const hours = [
-    { day: "Monday - Friday", time: "9:00 AM - 8:00 PM", status: "open" },
-    { day: "Saturday", time: "9:00 AM - 6:00 PM", status: "open" },
+    { day: "Mon - Sat (Morning)", time: "9:00 AM - 5:00 PM", status: "open" },
+    { day: "Mon - Sat (Evening)", time: "6:00 PM - 9:00 PM", status: "open" },
     { day: "Sunday", time: "By Appointment", status: "appointment" },
   ];
 
@@ -464,9 +464,10 @@ export default function ContactPage() {
                             ToothStories Clinic
                           </p>
                           <p className="text-gray-600 text-sm leading-relaxed">
-                            BARCODE, Rama Group Commercial Mall,
-                            <br />
-                            Pune, Maharashtra
+                            B 319, Barcode,
+                            Borate-Jambhulkar Chowk,<br />
+                            Shiv Rd, Bhoradewadi, Moshi,
+                            Pimpri-Chinchwad, Maharashtra.<br />
                           </p>
                         </div>
                       </div>
@@ -494,7 +495,7 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  className="relative p-8 rounded-3xl bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden border-2 border-white/10 shadow-2xl"
+                  className="relative p-6 rounded-3xl bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden border-2 border-white/10 shadow-2xl"
                 >
                   {/* Background pattern */}
                   <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03]" />
@@ -510,43 +511,42 @@ export default function ContactPage() {
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#D4AF37]/30 to-transparent rounded-full blur-3xl"
+                    className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/30 to-transparent rounded-full blur-3xl"
                   />
 
                   <div className="relative z-10">
                     {/* Header */}
-                    <div className="flex items-center gap-4 mb-8">
+                    <div className="flex items-center gap-3 mb-5">
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C4A030] blur-lg opacity-40 rounded-2xl" />
-                        <div className="relative bg-gradient-to-br from-[#D4AF37] to-[#C4A030] p-3 rounded-2xl shadow-lg">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C4A030] blur-lg opacity-40 rounded-xl" />
+                        <div className="relative bg-gradient-to-br from-[#D4AF37] to-[#C4A030] p-2.5 rounded-xl shadow-lg">
                           <Clock
-                            size={24}
+                            size={20}
                             className="text-white"
                             strokeWidth={2.5}
                           />
                         </div>
                       </div>
-                      <h4 className="text-2xl font-serif font-semibold">
+                      <h4 className="text-xl font-serif font-semibold">
                         Opening Hours
                       </h4>
                     </div>
 
                     {/* Hours List */}
-                    <div className="space-y-4">
+                    <div className="divide-y divide-white/10">
                       {hours.map((hour, idx) => (
                         <div
                           key={idx}
-                          className="flex justify-between items-center py-4 border-b border-white/10 last:border-b-0"
+                          className="flex justify-between items-center py-2.5"
                         >
-                          <span className="text-gray-400 text-sm tracking-wide font-light">
+                          <span className="text-gray-300 text-sm font-medium">
                             {hour.day}
                           </span>
                           <span
-                            className={`font-semibold text-sm ${
-                              hour.status === "open"
-                                ? "text-[#D4AF37]"
-                                : "text-[#C21E56]"
-                            }`}
+                            className={`font-bold text-sm ${hour.status === "open"
+                              ? "text-[#D4AF37]"
+                              : "text-[#C21E56]"
+                              }`}
                           >
                             {hour.time}
                           </span>
@@ -555,7 +555,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Bottom accent */}
-                    <div className="mt-6 pt-6 border-t border-white/10">
+                    <div className="mt-4 pt-4 border-t border-white/10">
                       <div className="flex items-center justify-center gap-2 text-[#D4AF37] text-xs">
                         <Sparkles size={14} />
                         <span className="font-medium tracking-wide">
