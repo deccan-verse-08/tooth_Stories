@@ -37,7 +37,7 @@ export default function Hero() {
         >
           {/* Trust row */}
           <motion.div variants={item} className="flex items-center gap-5">
-            <span className="text-[11px] font-bold uppercase tracking-[0.4em] text-[#C21E56]">
+            <span className="text-[11px]  uppercase tracking-[0.4em] text-[#C21E56]">
               Trusted Dental Studio
             </span>
             <div className="flex gap-1.5">
@@ -58,9 +58,7 @@ export default function Hero() {
           >
             Dentistry Crafted
             <br />
-            <span className="text-[#C21E56] font-bold">
-              With Precision and Care
-            </span>
+            <span className="text-[#C21E56] ">With Precision and Care</span>
           </motion.h1>
 
           {/* Description */}
