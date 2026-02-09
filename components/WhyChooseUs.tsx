@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
       shadow: "rose-500/20",
     },
     {
-      title: "Zero Wait Guarantee",
+      title: "Less Waiting Time",
       desc: "Streamlined scheduling and efficient workflows ensure you're seen promptly, respecting your valuable time.",
       icon: Clock,
       gradient: "from-[#D4AF37] to-[#C4A030]",
