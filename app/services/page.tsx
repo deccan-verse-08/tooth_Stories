@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, cubicBezier } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
   Shield,
@@ -15,6 +15,13 @@ import {
   X,
   CalendarCheck,
   Check,
+  Scan,
+  Syringe,
+  Sun,
+  Activity,
+  Crown,
+  Smile,
+  Baby,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -41,7 +48,7 @@ const item = {
     filter: "blur(0px)",
     transition: {
       duration: 0.9,
-      ease: cubicBezier(0.25, 0.4, 0.25, 1),
+      ease: [0.25, 0.4, 0.25, 1],
     },
   },
 };
@@ -63,64 +70,153 @@ const categories = [
   "Cosmetic",
   "Restorative",
   "Orthodontics",
+  "Pediatric",
 ];
 
 const services = [
   {
-    id: "smile-makeovers",
-    title: "Smile Makeovers",
-    category: "Cosmetic",
-    description:
-      "A comprehensive approach to transforming your smile using veneers and bonding.",
-    details:
-      "Our signature Smile Makeover is a bespoke treatment plan that combines artistry with advanced dental science. Whether you're looking to correct chips, gaps, discoloration, or misalignment, we create a harmonious look that compliments your facial features. We use high-quality porcelain veneers and composite bonding to craft a smile that looks naturally flawless and boosts your confidence.",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95",
-    icon: Wand2,
-    gradient: "from-purple-500 to-fuchsia-600",
-    bgGradient: "from-purple-50 to-fuchsia-50",
-    shadow: "purple-500/20",
-  },
-  {
-    id: "routine-checkups",
+    id: "check-ups",
     title: "Routine Check-ups",
     category: "General",
-    description:
-      "Examinations and professional cleanings to maintain your long-term oral health.",
-    details:
-      "Prevention is the foundation of a healthy smile. Our routine check-ups go beyond just a quick look. We use digital imaging and intraoral cameras to detect early signs of decay or gum disease. Our gentle hygienists provide a thorough cleaning to remove plaque and tartar build-up, leaving your teeth feeling polished and fresh. Regular visits ensure your smile stays healthy for life.",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514",
+    description: "Thorough examinations to monitor and maintain your oral health foundation.",
+    details: "Regular dental check-ups are essential for maintaining healthy teeth and gums. Our comprehensive examinations allow us to detect improper oral hygiene habits, cavities, and gum disease early. We use advanced diagnostic technology to catch issues before they become major problems, ensuring your smile stays bright and healthy year-round.",
+    image: "/Routne_checkup.jpg",
     icon: Stethoscope,
     gradient: "from-emerald-500 to-teal-600",
     bgGradient: "from-emerald-50 to-teal-50",
     shadow: "emerald-500/20",
   },
   {
-    id: "invisalign",
-    title: "Invisalign® Treatment",
-    category: "Orthodontics",
-    description:
-      "Discreetly straighten your teeth with custom-made, clear aligners.",
-    details:
-      "Achieve the straight smile you've always wanted without the metal wires. Invisalign® uses a series of clear, removable aligners to gradually shift your teeth into place. It's comfortable, virtually invisible, and fits seamlessly into your lifestyle. We use 3D scanning to plan your treatment from start to finish, so you can see your future smile before you even begin.",
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787",
-    icon: Shield,
+    id: "x-rays",
+    title: "Digital X-Rays",
+    category: "General",
+    description: "High-precision imaging for accurate diagnosis and effective treatment planning.",
+    details: "Our state-of-the-art digital X-ray technology provides detailed images of your teeth and jaw with minimal radiation exposure. These images are crucial for detecting decay between teeth, bone loss, and other issues not visible to the naked eye, allowing for precise and effective treatment planning.",
+    image: "/Digital_xray.jpg",
+    icon: Scan,
     gradient: "from-cyan-500 to-sky-600",
     bgGradient: "from-cyan-50 to-sky-50",
     shadow: "cyan-500/20",
   },
   {
+    id: "teeth-cleaning",
+    title: "Teeth Cleaning",
+    category: "General",
+    description: "Professional hygiene sessions to remove plaque and polish your smile.",
+    details: "Even with diligent brushing and flossing, plaque can harden into tartar. Our professional cleaning services remove these stubborn deposits, preventing gum disease and cavities. We polish your teeth to remove surface stains, leaving your mouth feeling incredibly fresh and clean.",
+    image: "/Tooth_whitening.jpg",
+    icon: Sparkles,
+    gradient: "from-purple-500 to-fuchsia-600",
+    bgGradient: "from-purple-50 to-fuchsia-50",
+    shadow: "purple-500/20",
+  },
+  {
+    id: "tooth-filling",
+    title: "Tooth Filling",
+    category: "Restorative",
+    description: "Restore damaged teeth with durable, tooth-colored composite fillings.",
+    details: "Cavities don't just compromise your tooth's structure; they can lead to pain and infection. We use high-quality, tooth-colored composite resins to fill cavities, restoring the tooth's shape and function while maintaining a natural appearance. Our fillings are durable and designed to blend seamlessly with your smile.",
+    image: "/five.jpg",
+    icon: Syringe,
+    gradient: "from-[#D4AF37] to-[#C4A030]",
+    bgGradient: "from-[#D4AF37]/5 to-[#C4A030]/5",
+    shadow: "[#D4AF37]/20",
+  },
+  {
+    id: "teeth-whitening",
+    title: "Teeth Whitening",
+    category: "Cosmetic",
+    description: "Brighten your smile safely and effectively with our professional whitening options.",
+    details: " stains from coffee, tea, and aging can dull your smile. Our professional teeth whitening treatments penetrate deep into the enamel to break up stains and discoloration. Whether you choose an in-office treatment for immediate results or a take-home kit for convenience, you'll achieve a visibly brighter, more radiant smile.",
+    image: "/185.jpg",
+    icon: Sun,
+    gradient: "from-rose-500 to-pink-600",
+    bgGradient: "from-rose-50 to-pink-50",
+    shadow: "rose-500/20",
+  },
+  {
+    id: "root-canal",
+    title: "Root Canal Treatment",
+    category: "Restorative",
+    description: "Save infected teeth and eliminate pain with our gentle endodontic therapy.",
+    details: "Root canal therapy is a tooth-saving procedure used to treat infection at the center of a tooth. Contrary to popular belief, modern root canals are relatively painless and extremely effective. We remove the infected pulp, clean the root canals, and seal them to prevent reinfection, allowing you to keep your natural tooth.",
+    image: "/RC.jpg",
+    icon: Activity,
+    gradient: "from-emerald-500 to-teal-600",
+    bgGradient: "from-emerald-50 to-teal-50",
+    shadow: "emerald-500/20",
+  },
+  {
+    id: "tooth-extraction",
+    title: "Tooth Extraction",
+    category: "General",
+    description: "Safe and comfortable removal of problematic or damaged teeth.",
+    details: "While we strive to save every tooth, there are times when extraction is necessary for your overall health—such as with severe decay, infection, or impacted wisdom teeth. Our team ensures the procedure is as comfortable as possible, and we provide comprehensive aftercare instructions and replacement options.",
+    image: "/ToothExt.jpg",
+    icon: Syringe,
+    gradient: "from-cyan-500 to-sky-600",
+    bgGradient: "from-cyan-50 to-sky-50",
+    shadow: "cyan-500/20",
+  },
+  {
+    id: "crowns-bridges",
+    title: "Crowns and Bridges",
+    category: "Restorative",
+    description: "Strengthen damaged teeth or replace missing ones with custom prosthetics.",
+    details: "Crowns 'cap' a damaged tooth to restore its shape and strength, while bridges replace one or more missing teeth by anchoring to adjacent natural teeth. Both are custom-crafted in a lab to match the color and contour of your natural teeth, providing a durable and aesthetic restoration.",
+    image: "/dental-crowns-vs-bridges.jpg",
+    icon: Crown,
+    gradient: "from-[#D4AF37] to-[#C4A030]",
+    bgGradient: "from-[#D4AF37]/5 to-[#C4A030]/5",
+    shadow: "[#D4AF37]/20",
+  },
+  {
+    id: "cosmetic-treatment",
+    title: "Cosmetic Treatment",
+    category: "Cosmetic",
+    description: "A comprehensive range of procedures to enhance the aesthetics of your smile.",
+    details: "From veneers to bonding and gum contouring, our cosmetic treatments are designed to address your specific aesthetic concerns. We work with you to design a treatment plan that harmonizes with your facial features, creating a smile that looks naturally beautiful and boosts your self-confidence.",
+    image: "/ten.jpg",
+    icon: Wand2,
+    gradient: "from-purple-500 to-fuchsia-600",
+    bgGradient: "from-purple-50 to-fuchsia-50",
+    shadow: "purple-500/20",
+  },
+  {
     id: "dental-implants",
     title: "Dental Implants",
     category: "Restorative",
-    description:
-      "The gold standard for tooth replacement, offering a natural-looking solution.",
-    details:
-      "Missing teeth can affect your ability to eat, speak, and smile with confidence. Dental implants are the most natural and durable solution for tooth replacement. We place a titanium post that acts as a new root, topped with a custom-crafted porcelain crown that matches your natural teeth perfectly. It's a permanent solution that restores both function and aesthetics.",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09",
+    description: "The gold standard for permanent tooth replacement.",
+    details: "Dental implants provide a foundation for replacement teeth that look, feel, and function like natural teeth. Implants prevent bone loss and preserve facial structure. Our precise placement techniques ensure long-lasting results, giving you the freedom to eat, laugh, and smile without worry.",
+    image: "/thirteen.jpg",
     icon: HeartPulse,
-    gradient: "from-[#C21E56] to-[#A01845]",
-    bgGradient: "from-[#C21E56]/5 to-[#A01845]/5",
-    shadow: "[#C21E56]/20",
+    gradient: "from-rose-500 to-pink-600",
+    bgGradient: "from-rose-50 to-pink-50",
+    shadow: "rose-500/20",
+  },
+  {
+    id: "pediatric-treatment",
+    title: "Pediatric Treatment",
+    category: "Pediatric",
+    description: "Gentle, friendly dental care specialized for children of all ages.",
+    details: "We believe in creating positive dental experiences from an early age. Our pediatric services focus on prevention, education, and gentle treatment. We create a fun and safe environment where children feel comfortable, helping them establish a lifetime of healthy oral hygiene habits.",
+    image: "/pd.jpg",
+    icon: Baby,
+    gradient: "from-cyan-500 to-sky-600",
+    bgGradient: "from-cyan-50 to-sky-50",
+    shadow: "cyan-500/20",
+  },
+  {
+    id: "orthodontic-treatment",
+    title: "Orthodontic Treatment",
+    category: "Orthodontics",
+    description: "Straighten your smile with modern braces and aligner solutions.",
+    details: "A straight smile is a healthy smile. Our orthodontic treatments correct misalignment and bite issues, improving both aesthetics and function. We offer traditional braces as well as clear aligners, tailoring the treatment to your lifestyle and needs for optimal results.",
+    image: "/orthodontic.jpg",
+    icon: Smile,
+    gradient: "from-purple-500 to-fuchsia-600",
+    bgGradient: "from-purple-50 to-fuchsia-50",
+    shadow: "purple-500/20",
   },
 ];
 
@@ -272,11 +368,10 @@ export default function ServicesPage() {
                   onClick={() => setActiveTab(cat)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 ${
-                    activeTab === cat
-                      ? "bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white shadow-lg shadow-[#C21E56]/30"
-                      : "bg-transparent text-gray-500 hover:text-gray-900"
-                  }`}
+                  className={`px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 ${activeTab === cat
+                    ? "bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white shadow-lg shadow-[#C21E56]/30"
+                    : "bg-transparent text-gray-500 hover:text-gray-900"
+                    }`}
                 >
                   {cat}
                 </motion.button>
@@ -289,9 +384,6 @@ export default function ServicesPage() {
         <section className="relative py-16 lg:py-24 px-6">
           <div className="max-w-[1400px] mx-auto">
             <motion.div
-              variants={container}
-              initial="hidden"
-              animate="show"
               className="grid md:grid-cols-2 gap-8 lg:gap-10"
             >
               {filteredServices.map((service, idx) => {
@@ -299,7 +391,6 @@ export default function ServicesPage() {
                 return (
                   <motion.div
                     key={service.id}
-                    variants={item}
                     onClick={() => setSelectedId(service.id)}
                     className="group relative cursor-pointer"
                   >
