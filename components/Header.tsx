@@ -32,7 +32,7 @@ export default function Header() {
         scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 h-15 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-6 h-21 flex justify-between items-center">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-4 group">
           {/* Logo Image Container - Increased Size & No Pink BG */}
