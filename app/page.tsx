@@ -10,6 +10,7 @@ import Gallery from "@/components/GallarySection";
 import CTA from "@/components/CTASection";
 import BlogSection from "@/components/BlogsSection";
 import AboutToothStories from "@/components/AboutToothStories";
+import GoogleReviews from "@/components/GoogleReviews";
 
 export default function Home() {
   return (
@@ -17,11 +18,12 @@ export default function Home() {
       <Header />
       <Hero />
       <AboutToothStories />
-      <WhyChooseUs /> 
-      <Stats /> 
-      <Gallery /> 
-      <BlogSection /> 
-      <CTA /> 
+      <WhyChooseUs />
+      <Stats />
+      <GoogleReviews />
+      <Gallery />
+      <BlogSection />
+      <CTA />
       <Footer />
     </>
   );
