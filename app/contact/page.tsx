@@ -88,7 +88,7 @@ export default function ContactPage() {
   ];
 
   const hours = [
-    { day: "Mon - Sat (Morning)", time: "9:00 AM - 5:00 PM", status: "open" },
+    { day: "Mon - Sat (Morning)", time: "9:00 AM - 2:00 PM", status: "open" },
     { day: "Mon - Sat (Evening)", time: "6:00 PM - 9:00 PM", status: "open" },
     { day: "Sunday", time: "By Appointment", status: "appointment" },
   ];
