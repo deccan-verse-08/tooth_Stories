@@ -34,7 +34,7 @@ export default function Footer() {
                   TOOTH<span className="text-[#D4AF37]">STORIES</span>
                 </h3>
                 <p className="text-[9px] uppercase tracking-[0.3em] text-gray-500 mt-1">
-                  Dental Excellence
+                  Dental Clinic
                 </p>
               </div>
             </Link>
