@@ -31,7 +31,7 @@ export default function Footer() {
 
               <div className="flex flex-col">
                 <h3 className="text-xl font-serif font-black tracking-tighter leading-none">
-                  TOOTH<span className="text-[#D4AF37]">STORIES</span>
+                  TOOTH<span className="text-[#D4AF37]"> STORIES</span>
                 </h3>
                 <p className="text-[9px] uppercase tracking-[0.3em] text-gray-500 mt-1">
                   Dental Clinic

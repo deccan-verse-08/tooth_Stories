@@ -78,7 +78,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       label: "Visit Us",
-      value: "ToothStories Clinic",
+      value: "Tooth Stories Clinic",
       action: "#map-section",
       gradient: "from-[#D4AF37] to-[#C4A030]",
       bgGradient: "from-[#D4AF37]/10 to-[#C4A030]/10",
@@ -461,7 +461,7 @@ export default function ContactPage() {
                         </motion.div>
                         <div className="flex-1">
                           <p className="text-gray-900 font-serif text-xl font-semibold mb-1">
-                            ToothStories Clinic
+                            Tooth Stories Clinic
                           </p>
                           <p className="text-gray-600 text-sm leading-relaxed">
                             B 319, Barcode,

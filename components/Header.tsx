@@ -28,9 +28,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-21 flex justify-between items-center">
         {/* Logo Section */}
@@ -64,11 +63,10 @@ export default function Header() {
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className={`text-sm font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-1 ${
-                    pathname === item.href
-                      ? "text-[#D4AF37] border-b-2 border-[#D4AF37] pb-1"
-                      : "text-gray-500 hover:text-gray-900"
-                  }`}
+                  className={`text-sm font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-1 ${pathname === item.href
+                    ? "text-[#D4AF37] border-b-2 border-[#D4AF37] pb-1"
+                    : "text-gray-500 hover:text-gray-900"
+                    }`}
                 >
                   {item.name}
                   {item.name === "Services" && (
@@ -92,7 +90,7 @@ export default function Header() {
                 {/* Dropdown for Services */}
                 {item.name === "Services" && (
                   <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 w-64">
-                    <div className="bg-black text-white p-6 shadow-xl rounded-sm border-t-2 border-[#D4AF37]">
+                    <div className="bg-[#FFF0E8] p-6 shadow-xl rounded-md border-t-2 border-[#D4AF37] ring-1 ring-[#f5d5c3]">
                       <div className="flex flex-col gap-4">
                         {[
                           "CHECK-UPS",
@@ -111,7 +109,7 @@ export default function Header() {
                           <Link
                             key={service}
                             href="/services"
-                            className="text-white hover:text-[#D4AF37] text-xs font-bold tracking-widest uppercase transition-colors duration-200"
+                            className="text-gray-700 hover:text-[#E11D74] text-xs font-bold tracking-widest uppercase transition-colors duration-200"
                           >
                             {service}
                           </Link>
@@ -163,11 +161,10 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 right-0 bg-white border-t transition-all duration-500 overflow-hidden ${
-          isMenuOpen
-            ? "max-h-screen opacity-100 shadow-xl"
-            : "max-h-0 opacity-0"
-        }`}
+        className={`absolute top-full left-0 right-0 bg-white border-t transition-all duration-500 overflow-hidden ${isMenuOpen
+          ? "max-h-screen opacity-100 shadow-xl"
+          : "max-h-0 opacity-0"
+          }`}
       >
         <div className="p-8 space-y-6">
           {navItems.map((item) => (

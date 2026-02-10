@@ -26,6 +26,12 @@ import {
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
+
+const Service3D = dynamic(() => import('@/components/Service3D'), {
+  ssr: false,
+  loading: () => <div className="w-full h-[600px] flex items-center justify-center">Loading...</div>
+});
 
 /* ================= VARIANTS ================= */
 
@@ -188,7 +194,7 @@ const services = [
     category: "Restorative",
     description: "The gold standard for permanent tooth replacement.",
     details: "Dental implants provide a foundation for replacement teeth that look, feel, and function like natural teeth. Implants prevent bone loss and preserve facial structure. Our precise placement techniques ensure long-lasting results, giving you the freedom to eat, laugh, and smile without worry.",
-    image: "/thirteen.jpg",
+    image: "/7438298_32619.jpg",
     icon: HeartPulse,
     gradient: "from-rose-500 to-pink-600",
     bgGradient: "from-rose-50 to-pink-50",
@@ -353,6 +359,13 @@ export default function ServicesPage() {
           </div>
         </section>
 
+        {/* ================= 3D INTERACTIVE SECTION ================= */}
+        <section className="relative py-12 px-6">
+          <div className="max-w-[1400px] mx-auto">
+            <Service3D />
+          </div>
+        </section>
+
         {/* ================= FILTER TABS ================= */}
         <section className="relative py-12 px-6">
           <div className="max-w-[1400px] mx-auto">
@@ -360,7 +373,8 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex flex-wrap items-center justify-center gap-3 bg-white/60 backdrop-blur-xl p-2 rounded-full border-2 border-white/60 shadow-xl shadow-gray-200/50 w-fit mx-auto"
+              className="flex items-center gap-3 overflow-x-auto pb-2 md:pb-0 md:overflow-visible md:flex-wrap md:justify-center bg-white/60 backdrop-blur-xl p-2 md:rounded-full rounded-2xl border-2 border-white/60 shadow-xl shadow-gray-200/50 md:w-fit mx-auto scrollbar-hide"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {categories.map((cat) => (
                 <motion.button
@@ -368,7 +382,7 @@ export default function ServicesPage() {
                   onClick={() => setActiveTab(cat)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 ${activeTab === cat
+                  className={`px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeTab === cat
                     ? "bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white shadow-lg shadow-[#C21E56]/30"
                     : "bg-transparent text-gray-500 hover:text-gray-900"
                     }`}
