@@ -114,7 +114,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6">
           <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em]">
-            © {new Date().getFullYear()} TOOTHSTORIES • ALL RIGHTS RESERVED
+            © {new Date().getFullYear()} TOOTH STORIES • ALL RIGHTS RESERVED
           </p>
 
           <button
