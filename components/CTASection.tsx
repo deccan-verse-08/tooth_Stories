@@ -238,7 +238,7 @@ export default function CTA() {
                     <div className="flex justify-between items-center pb-2 border-b border-white/10">
                       <span>Mon - Sat (Morning)</span>
                       <span className="text-[#D4AF37] font-medium">
-                        9:00 AM - 5:00 PM
+                        9:00 AM - 2:00 PM
                       </span>
                     </div>
                     <div className="flex justify-between items-center pb-2 border-b border-white/10">
