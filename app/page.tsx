@@ -8,17 +8,20 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import Footer from "@/components/Footer";
 import Gallery from "@/components/GallarySection";
 import CTA from "@/components/CTASection";
+import BlogSection from "@/components/BlogsSection";
+import AboutToothStories from "@/components/AboutToothStories";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
-
-      <WhyChooseUs />
-      <Gallery />
-      <Stats />
-      <CTA />
+      <AboutToothStories />
+      <WhyChooseUs /> 
+      <Stats /> 
+      <Gallery /> 
+      <BlogSection /> 
+      <CTA /> 
       <Footer />
     </>
   );

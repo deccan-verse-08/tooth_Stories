@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+
 import {
   Award,
   Heart,
@@ -12,42 +13,75 @@ import {
   Target,
   Star,
   CheckCircle2,
+  Shield,
+  Lightbulb,
+  Smile,
+  TrendingUp,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 /* ================= VARIANTS ================= */
+/* ================= VARIANTS ================= */
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 1 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
     },
   },
 };
 
-const item = {
-  hidden: { opacity: 0, y: 40, scale: 0.95, filter: "blur(10px)" },
+const item: Variants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95, filter: "blur(10px)" },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
     filter: "blur(0px)",
     transition: {
-      duration: 0.9,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
+      duration: 1.2,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
     },
   },
 };
 
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40, filter: "blur(8px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+    },
+  },
+};
+
+const scaleIn: Variants = {
+  hidden: { scale: 0.9, opacity: 0 },
+  show: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
+  },
+};
+
+/* Floating animation (NOT a variant) */
+
 const floatingAnimation = {
-  y: [0, -10, 0],
+  y: [0, -12, 0],
   transition: {
-    duration: 3,
+    duration: 3.5,
     repeat: Infinity,
-    ease: [0.42, 0, 0.58, 1] as const,
+    ease: "easeInOut" as const,
   },
 };
 
@@ -56,21 +90,80 @@ const floatingAnimation = {
 const doctors = [
   {
     name: "Dr. Vaibhav Harkare",
-    role: "Lead Implantologist & Founder",
-    education: "MDS - Oral Surgery",
+    role: "Co-Founder & Clinical Strategy Lead",
+    credentials: "BDS | Hospital Administration Specialist",
+    experience: "19+ Years",
+    patients: "10,000+",
     image: "/d1.jpg",
-    gradient: "from-[#C21E56] to-[#A01845]",
-    bgGradient: "from-[#C21E56]/5 to-[#A01845]/5",
-    shadow: "[#C21E56]/20",
+    gradient: "from-[#C21E56] via-[#D4536A] to-[#C21E56]",
+    accentColor: "#C21E56",
+    expertise: [
+      "Clinical Dentistry",
+      "Healthcare Management",
+      "Strategic Planning",
+    ],
+    bio: [
+      "With a rare blend of clinical mastery and healthcare leadership, Dr. Vaibhav Harkare brings over 19 years of distinguished experience in dentistry and hospital administration.",
+      "His approach combines precision-driven clinical care with a deep understanding of patient experience, making every treatment journey seamless, transparent, and reassuring.",
+      "Dr. Vaibhav earned his Bachelor of Dental Surgery (BDS) from Sharad Pawar Dental College, Wardha, affiliated with MUHS in 2008. He advanced his expertise with a specialization in Hospital Administration from IIHMR, Bangalore in 2009.",
+      "In 2013, Dr. Vaibhav co-founded Shree Dental Clinic, Bhosari, which became known for ethical practice and strong patient trust. Today, he shapes Tooth Stories Dental Clinic as the most sought-after premium dental destination in Moshi.",
+      "For Dr. Vaibhav, dentistry is about trust, experience, and long-term wellness, delivered with quiet excellence.",
+    ],
+    highlights: [
+      { icon: GraduationCap, text: "MUHS Certified" },
+      { icon: Award, text: "Hospital Admin Expert" },
+      { icon: Shield, text: "Ethical Practice" },
+    ],
   },
   {
-    name: "Dr. Snehal Kulkarni",
-    role: "Cosmetic Dentist & Co-Founder",
-    education: "BDS, MDS - Conservative",
+    name: "Dr. Snehal Kulkarni (Harkare)",
+    role: "Founder & Clinical Director",
+    credentials: "BDS | Fellowship in Orthodontics",
+    experience: "15+ Years",
+    patients: "5,000+",
     image: "/d2.jpg",
+    gradient: "from-[#D4AF37] via-[#E4C157] to-[#D4AF37]",
+    accentColor: "#D4AF37",
+    expertise: ["Orthodontics", "Aesthetic Dentistry", "Smile Design"],
+    bio: [
+      "Where science meets artistry, Dr. Snehal Kulkarni brings over 15 years of refined clinical excellence to premium dental care. Known for meticulous attention to detail and aesthetic sensibility, she has crafted confident smiles for more than 5,000 patients.",
+      "Dr. Snehal completed her BDS from CSMSS Dental College, Sambhaji Nagar under MUHS in 2010. Driven by passion for advanced smile design, she completed a Fellowship in Orthodontics in 2019.",
+      "Her entrepreneurial journey began with Shree Dental Clinic – Bhosari (2013), followed by expansion to Triveni Nagar, Pune (2015). Both centers became synonymous with high-quality care and patient loyalty.",
+      "With an elevated vision, Dr. Snehal founded Tooth Stories Dental Clinic — where luxury, technology, comfort, and clinical mastery converge, delivering an exclusive dental experience.",
+      "For Dr. Snehal, dentistry is an art of creating confidence. Every treatment enhances natural beauty, restores function, and delivers long-lasting wellness.",
+    ],
+    highlights: [
+      { icon: Sparkles, text: "Aesthetic Excellence" },
+      { icon: Award, text: "Fellowship Trained" },
+      { icon: Smile, text: "5000+ Smiles" },
+    ],
+  },
+];
+
+const achievements = [
+  {
+    number: "34+",
+    label: "Combined Experience",
+    icon: Star,
+    gradient: "from-[#C21E56] to-[#A01845]",
+  },
+  {
+    number: "15,000+",
+    label: "Happy Patients",
+    icon: Users,
     gradient: "from-[#D4AF37] to-[#C4A030]",
-    bgGradient: "from-[#D4AF37]/10 to-[#C4A030]/10",
-    shadow: "[#D4AF37]/20",
+  },
+  {
+    number: "99%",
+    label: "Success Rate",
+    icon: CheckCircle2,
+    gradient: "from-[#C21E56] to-[#D4AF37]",
+  },
+  {
+    number: "3",
+    label: "Clinic Locations",
+    icon: Award,
+    gradient: "from-[#D4AF37] to-[#C21E56]",
   },
 ];
 
@@ -78,90 +171,58 @@ const values = [
   {
     icon: Heart,
     title: "Patient First",
-    desc: "Your comfort, trust, and wellbeing are at the heart of everything we do.",
+    desc: "Your comfort, trust, and wellbeing are at the heart of everything we do. Every treatment is designed around you.",
     gradient: "from-rose-500 to-pink-600",
-    bgGradient: "from-rose-50 to-pink-50",
-    shadow: "rose-500/20",
   },
   {
     icon: Award,
     title: "Clinical Excellence",
-    desc: "Decades of expertise combined with continuous learning and innovation.",
+    desc: "Decades of expertise combined with continuous learning, advanced training, and commitment to the highest standards.",
     gradient: "from-[#D4AF37] to-[#C4A030]",
-    bgGradient: "from-[#D4AF37]/10 to-[#C4A030]/10",
-    shadow: "[#D4AF37]/20",
   },
   {
     icon: Sparkles,
-    title: "Precision Care",
-    desc: "State-of-the-art technology ensuring accuracy in every treatment.",
+    title: "Aesthetic Precision",
+    desc: "Where artistry meets science. Every smile is crafted with meticulous attention to detail and natural beauty.",
     gradient: "from-purple-500 to-fuchsia-600",
-    bgGradient: "from-purple-50 to-fuchsia-50",
-    shadow: "purple-500/20",
   },
   {
-    icon: Target,
-    title: "Personalized Approach",
-    desc: "Tailored treatment plans designed specifically for your unique needs.",
+    icon: Shield,
+    title: "Ethical Practice",
+    desc: "Transparent communication, honest recommendations, and integrity in every interaction. Your trust is our foundation.",
     gradient: "from-cyan-500 to-sky-600",
-    bgGradient: "from-cyan-50 to-sky-50",
-    shadow: "cyan-500/20",
-  },
-];
-
-const achievements = [
-  {
-    number: "15+",
-    label: "Years Experience",
-    icon: Star,
   },
   {
-    number: "10,000+",
-    label: "Happy Patients",
-    icon: Users,
+    icon: Lightbulb,
+    title: "Innovation & Technology",
+    desc: "State-of-the-art equipment and cutting-edge techniques ensuring accuracy, comfort, and superior outcomes.",
+    gradient: "from-amber-500 to-orange-600",
   },
   {
-    number: "98%",
-    label: "Success Rate",
-    icon: CheckCircle2,
-  },
-  {
-    number: "50+",
-    label: "Awards Won",
-    icon: Award,
+    icon: TrendingUp,
+    title: "Continuous Growth",
+    desc: "Committed to staying at the forefront of dental science through ongoing education and skill enhancement.",
+    gradient: "from-emerald-500 to-teal-600",
   },
 ];
 
 /* ================= COMPONENT ================= */
 
-export default function AboutPage() {
+export default function AboutPagePremium() {
   return (
     <>
       <Header />
 
       <main className="bg-gradient-to-b from-[#FFFCFA] via-white to-[#FFF5F0] min-h-screen overflow-hidden">
         {/* ================= HERO SECTION ================= */}
-        <section className="relative pt-32 lg:pt-40 pb-20 lg:pb-28 overflow-hidden">
-          {/* Enhanced Background Elements */}
+        <section className="relative pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden">
+          {/* Luxury Background Elements */}
           <div className="absolute inset-0 pointer-events-none">
             {/* Animated gradient orbs */}
             <motion.div
               animate={{
-                x: [0, 50, 0],
-                y: [0, -30, 0],
-                scale: [1, 1.1, 1],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-[#C21E56]/15 to-[#D4AF37]/15 rounded-full blur-3xl"
-            />
-            <motion.div
-              animate={{
-                x: [0, -40, 0],
-                y: [0, 50, 0],
+                x: [0, 80, 0],
+                y: [0, -50, 0],
                 scale: [1, 1.2, 1],
               }}
               transition={{
@@ -169,43 +230,81 @@ export default function AboutPage() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-gradient-to-br from-[#D4AF37]/20 to-[#C21E56]/10 rounded-full blur-3xl"
+              className="absolute top-20 -left-20 w-[600px] h-[600px] bg-gradient-to-br from-[#C21E56]/15 via-[#D4AF37]/10 to-transparent rounded-full blur-3xl"
+            />
+            <motion.div
+              animate={{
+                x: [0, -60, 0],
+                y: [0, 70, 0],
+                scale: [1, 1.3, 1],
+              }}
+              transition={{
+                duration: 30,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-40 -right-20 w-[700px] h-[700px] bg-gradient-to-tl from-[#D4AF37]/20 via-[#C21E56]/10 to-transparent rounded-full blur-3xl"
             />
 
-            {/* Decorative geometric shapes */}
+            {/* Elegant grid pattern */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+
+            {/* Decorative circles */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/4 -left-20 w-80 h-80 border border-[#D4AF37]/20 rounded-full"
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="absolute top-1/4 -left-32 w-96 h-96 border border-[#D4AF37]/20 rounded-full"
             />
             <motion.div
               animate={{ rotate: -360 }}
-              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              className="absolute bottom-1/4 -right-20 w-96 h-96 border border-[#C21E56]/20 rounded-full"
+              transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+              className="absolute bottom-1/3 -right-32 w-[500px] h-[500px] border border-[#C21E56]/15 rounded-full"
             />
 
-            {/* Elegant radial pattern */}
-            <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:48px_48px] opacity-[0.02]" />
+            {/* Floating particles */}
+            {[
+              { left: 10, top: 20, duration: 6, delay: 0 },
+              { left: 85, top: 15, duration: 7, delay: 1.5 },
+              { left: 25, top: 70, duration: 5.5, delay: 3 },
+              { left: 70, top: 40, duration: 8, delay: 0.8 },
+              { left: 45, top: 85, duration: 6.5, delay: 2.2 },
+              { left: 90, top: 60, duration: 7.5, delay: 4 },
+            ].map((particle, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1.5 h-1.5 bg-[#D4AF37]/30 rounded-full"
+                style={{
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
+                }}
+                animate={{
+                  y: [0, -80, 0],
+                  opacity: [0, 0.8, 0],
+                  scale: [0.8, 1.2, 0.8],
+                }}
+                transition={{
+                  duration: particle.duration,
+                  repeat: Infinity,
+                  delay: particle.delay,
+                  ease: "easeInOut",
+                }}
+              />
+            ))}
           </div>
 
-          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-16">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
+              variants={container}
+              initial="hidden"
+              animate="show"
               className="text-center"
             >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-block mb-6"
-              >
+              {/* Premium Badge */}
+              <motion.div variants={scaleIn} className="inline-block mb-8">
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#C21E56]/30 to-[#D4AF37]/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
-                  <div className="relative px-6 py-2.5 bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/30 rounded-full shadow-lg">
-                    <span className="text-xs font-bold tracking-[0.3em] uppercase bg-gradient-to-r from-[#C21E56] to-[#D4AF37] bg-clip-text text-transparent">
+                  <div className="relative px-6 py-3 bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/30 rounded-full shadow-lg">
+                    <span className="text-xs font-bold tracking-[0.25em] uppercase bg-gradient-to-r from-[#C21E56] to-[#D4AF37] bg-clip-text text-transparent">
                       About Tooth Stories
                     </span>
                   </div>
@@ -213,40 +312,47 @@ export default function AboutPage() {
               </motion.div>
 
               {/* Main Heading */}
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-                Where Excellence
-                <br />
-                <span className="font-light bg-gradient-to-r from-[#C21E56] via-[#D4AF37] to-[#C21E56] bg-clip-text text-transparent">
+              <motion.h1
+                variants={fadeUp}
+                className="font-serif text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.1] mb-8"
+              >
+                <span className="block text-gray-900">Where Excellence</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#C21E56] via-[#D4AF37] to-[#C21E56] bg-[length:200%_auto] animate-shimmer">
                   Meets Empathy
                 </span>
-              </h1>
+              </motion.h1>
 
               {/* Subheading */}
-              <p className="font-serif text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+              <motion.p
+                variants={fadeUp}
+                className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-10"
+              >
                 Meet the passionate dental experts dedicated to crafting
                 beautiful, healthy smiles through precision, care, and artistry
-              </p>
+              </motion.p>
 
-              {/* Decorative line */}
+              {/* Decorative divider */}
               <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "5rem" }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-10 rounded-full"
-              />
+                variants={scaleIn}
+                className="flex items-center justify-center gap-3 mb-12"
+              >
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#D4AF37]" />
+                <Sparkles className="w-5 h-5 text-[#D4AF37]" />
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#D4AF37]" />
+              </motion.div>
             </motion.div>
           </div>
         </section>
 
         {/* ================= ACHIEVEMENTS SECTION ================= */}
-        <section className="relative py-16 px-6">
+        <section className="relative py-16 lg:py-20 px-6">
           <div className="max-w-[1400px] mx-auto">
             <motion.div
               variants={container}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
             >
               {achievements.map((achievement, idx) => {
                 const Icon = achievement.icon;
@@ -254,23 +360,32 @@ export default function AboutPage() {
                   <motion.div
                     key={idx}
                     variants={item}
+                    whileHover={{ y: -8, scale: 1.02 }}
                     className="group relative"
                   >
-                    <div className="relative h-full p-6 lg:p-8 rounded-3xl bg-white border border-gray-100/60 shadow-sm hover:shadow-xl hover:shadow-[#C21E56]/10 transition-all duration-500 overflow-hidden text-center">
-                      {/* Glow effect */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-[#C21E56] to-[#D4AF37] opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-500 rounded-3xl" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                    <div className="relative h-full p-8 lg:p-10 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:border-[#D4AF37]/30 transition-all duration-500 overflow-hidden text-center">
+                      {/* Gradient overlay on hover */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${achievement.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                      />
 
                       <div className="relative z-10">
                         {/* Icon */}
                         <motion.div
-                          className="mb-4 inline-block"
-                          whileHover={floatingAnimation}
+                          className="mb-6 inline-block"
+                          animate={floatingAnimation}
                         >
                           <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#C21E56] to-[#D4AF37] blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 rounded-2xl" />
-                            <div className="relative p-3 rounded-2xl bg-gradient-to-br from-[#C21E56] to-[#A01845] shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500">
+                            <div
+                              className={`absolute inset-0 bg-gradient-to-br ${achievement.gradient} blur-xl opacity-30 rounded-2xl`}
+                            />
+                            <div
+                              className={`relative p-4 rounded-2xl bg-gradient-to-br ${achievement.gradient} shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500`}
+                            >
                               <Icon
-                                size={24}
+                                size={28}
                                 className="text-white"
                                 strokeWidth={2.5}
                               />
@@ -279,18 +394,20 @@ export default function AboutPage() {
                         </motion.div>
 
                         {/* Number */}
-                        <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                        <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
                           {achievement.number}
                         </h3>
 
                         {/* Label */}
-                        <p className="text-gray-500 text-xs font-light uppercase tracking-wider">
+                        <p className="text-gray-500 text-sm font-medium uppercase tracking-wider">
                           {achievement.label}
                         </p>
 
-                        {/* Bottom accent line */}
-                        <div className="mt-4 pt-4 border-t border-gray-100">
-                          <div className="h-1 w-0 group-hover:w-8 bg-gradient-to-r from-[#C21E56] to-[#D4AF37] rounded-full transition-all duration-500 mx-auto" />
+                        {/* Accent line */}
+                        <div className="mt-6 pt-6 border-t border-gray-100">
+                          <div
+                            className={`h-1 w-0 group-hover:w-12 bg-gradient-to-r ${achievement.gradient} rounded-full transition-all duration-500 mx-auto`}
+                          />
                         </div>
                       </div>
                     </div>
@@ -302,7 +419,7 @@ export default function AboutPage() {
         </section>
 
         {/* ================= DOCTORS SECTION ================= */}
-        <section className="relative py-20 lg:py-28 px-6">
+        <section className="relative py-16 lg:py-20 px-6">
           <div className="max-w-[1400px] mx-auto">
             {/* Section Header */}
             <motion.div
@@ -310,193 +427,259 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
-              className="text-center mb-16 lg:mb-20"
+              className="text-center mb-12 lg:mb-16"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-block mb-6"
+                className="inline-block mb-8"
               >
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#C21E56]/30 to-[#D4AF37]/30 rounded-full blur-xl" />
-                  <div className="relative px-6 py-2.5 bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/30 rounded-full shadow-lg">
-                    <span className="text-xs font-bold tracking-[0.3em] uppercase bg-gradient-to-r from-[#C21E56] to-[#D4AF37] bg-clip-text text-transparent">
+                  <div className="relative px-6 py-3 bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/30 rounded-full shadow-lg">
+                    <span className="text-xs font-bold tracking-[0.25em] uppercase bg-gradient-to-r from-[#C21E56] to-[#D4AF37] bg-clip-text text-transparent">
                       Meet Our Experts
                     </span>
                   </div>
                 </div>
               </motion.div>
 
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
-                The Hands Behind
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                The Visionaries Behind
                 <br />
                 <span className="font-light bg-gradient-to-r from-[#C21E56] via-[#D4AF37] to-[#C21E56] bg-clip-text text-transparent">
-                  The Craft
+                  Your Perfect Smile
                 </span>
               </h2>
 
-              <p className="font-serif text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
                 Our founders bring together decades of experience, advanced
-                training, and genuine care
+                training, and genuine care for transformative dental excellence
               </p>
             </motion.div>
 
-            {/* Doctors Grid */}
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-100px" }}
-              className="grid md:grid-cols-2 gap-10 lg:gap-16 max-w-5xl mx-auto"
-            >
+            {/* Doctors Profiles - Compact Layout */}
+            <div className="space-y-20">
               {doctors.map((doc, index) => (
                 <motion.div
                   key={index}
-                  variants={item}
-                  className="group relative"
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  className={`grid lg:grid-cols-5 gap-8 lg:gap-10 items-start ${
+                    index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                  }`}
                 >
-                  <div className="relative h-full p-8 lg:p-10 rounded-3xl bg-white border border-gray-100/60 shadow-sm hover:shadow-2xl hover:shadow-[#C21E56]/10 transition-all duration-500 overflow-hidden">
-                    {/* Animated background gradient on hover */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${doc.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                    />
+                  {/* Doctor Image - More Compact */}
+                  <motion.div
+                    className={`lg:col-span-2 relative group ${index % 2 === 1 ? "lg:col-start-4" : ""}`}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="relative sticky top-24">
+                      {/* Decorative background */}
+                      <div
+                        className={`absolute -inset-4 bg-gradient-to-br ${doc.gradient} opacity-20 rounded-3xl blur-2xl group-hover:opacity-30 transition-opacity duration-500`}
+                      />
 
-                    {/* Glow effect */}
-                    <div
-                      className={`absolute -inset-1 bg-gradient-to-r ${doc.gradient} opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-500 rounded-3xl`}
-                    />
-
-                    <div className="relative z-10 flex flex-col items-center">
-                      {/* Doctor Image */}
-                      <div className="relative w-56 h-56 lg:w-64 lg:h-64 mb-8 group/img">
-                        {/* Decorative circle */}
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{
-                            duration: 30,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                          className="absolute inset-0 rounded-full border-2 border-dashed border-[#D4AF37]/30"
-                        />
-
-                        {/* Image container */}
-                        <div className="absolute inset-2 rounded-full overflow-hidden bg-gradient-to-br from-[#FDF8F4] to-white border-4 border-white shadow-xl">
+                      {/* Main image container */}
+                      <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
+                        <div className="aspect-[3/4] relative">
                           <Image
                             src={doc.image}
                             alt={doc.name}
                             fill
-                            className="object-cover transition-transform duration-700 group-hover/img:scale-110"
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
                           />
+
+                          {/* Gradient overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                         </div>
 
-                        {/* Floating badge */}
+                        {/* Floating stats badges */}
                         <motion.div
+                          className="absolute top-4 left-4"
                           whileHover={floatingAnimation}
-                          className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-10"
                         >
                           <div className="relative">
                             <div
-                              className={`absolute inset-0 bg-gradient-to-br ${doc.gradient} blur-xl opacity-60 rounded-2xl`}
+                              className={`absolute inset-0 bg-gradient-to-br ${doc.gradient} blur-xl opacity-60`}
                             />
                             <div
-                              className={`relative px-4 py-2 rounded-2xl bg-gradient-to-br ${doc.gradient} shadow-xl flex items-center gap-2`}
+                              className={`relative px-3 py-1.5 rounded-lg bg-gradient-to-br ${doc.gradient} shadow-xl`}
                             >
-                              <GraduationCap
-                                size={16}
-                                className="text-white"
-                                strokeWidth={2.5}
-                              />
-                              <span className="text-white text-xs font-bold uppercase tracking-wider">
-                                {doc.education}
-                              </span>
+                              <div className="text-white text-xs font-bold">
+                                {doc.experience}
+                              </div>
+                              <div className="text-white/80 text-[10px]">
+                                Experience
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+
+                        <motion.div
+                          className="absolute top-4 right-4"
+                          whileHover={floatingAnimation}
+                        >
+                          <div className="relative">
+                            <div
+                              className={`absolute inset-0 bg-gradient-to-br ${doc.gradient} blur-xl opacity-60`}
+                            />
+                            <div
+                              className={`relative px-3 py-1.5 rounded-lg bg-gradient-to-br ${doc.gradient} shadow-xl`}
+                            >
+                              <div className="text-white text-xs font-bold">
+                                {doc.patients}
+                              </div>
+                              <div className="text-white/80 text-[10px]">
+                                Patients
+                              </div>
                             </div>
                           </div>
                         </motion.div>
                       </div>
 
-                      {/* Doctor Info */}
-                      <div className="text-center">
-                        <h3 className="text-2xl lg:text-3xl font-serif font-semibold text-gray-900 mb-2">
-                          {doc.name}
-                        </h3>
-
-                        <p className="text-[#C21E56] font-bold text-xs uppercase tracking-[0.2em] mb-6">
-                          {doc.role}
-                        </p>
-
-                        {/* Expertise Tags */}
-                        <div className="flex flex-wrap gap-2 justify-center">
-                          <div className="px-3 py-1.5 bg-gray-50 rounded-full">
-                            <span className="text-[10px] font-medium text-gray-600 uppercase tracking-wider">
-                              {index === 0 ? "Implantology" : "Cosmetic"}
-                            </span>
-                          </div>
-                          <div className="px-3 py-1.5 bg-gray-50 rounded-full">
-                            <span className="text-[10px] font-medium text-gray-600 uppercase tracking-wider">
-                              {index === 0 ? "Oral Surgery" : "Restorative"}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bottom accent line */}
-                      <div className="mt-8 pt-8 border-t border-gray-100 w-full">
-                        <div
-                          className={`h-1 w-0 group-hover:w-16 bg-gradient-to-r ${doc.gradient} rounded-full transition-all duration-500 mx-auto`}
-                        />
-                      </div>
-                    </div>
-
-                    {/* Corner decoration */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/50 to-transparent rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-
-                  {/* Floating number badge */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-                    className="absolute -top-4 -right-4 z-20"
-                  >
-                    <div
-                      className={`w-12 h-12 rounded-full bg-gradient-to-br ${doc.gradient} flex items-center justify-center shadow-xl shadow-${doc.shadow} group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <span className="text-white font-bold text-lg">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
+                      {/* Corner decoration */}
+                      <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-[#D4AF37] to-[#C21E56] rounded-full opacity-10 blur-2xl" />
                     </div>
                   </motion.div>
+
+                  {/* Doctor Info - More Compact */}
+                  <div
+                    className={`lg:col-span-3 ${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}
+                  >
+                    {/* Name & Role */}
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                      className="mb-6"
+                    >
+                      <h3 className="font-serif text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                        {doc.name}
+                      </h3>
+                      <p
+                        className={`text-base font-bold uppercase tracking-wider mb-1`}
+                        style={{ color: doc.accentColor }}
+                      >
+                        {doc.role}
+                      </p>
+                      <p className="text-gray-600 font-medium text-sm">
+                        {doc.credentials}
+                      </p>
+                    </motion.div>
+
+                    {/* Expertise Tags */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                      className="flex flex-wrap gap-2 mb-6"
+                    >
+                      {doc.expertise.map((skill, i) => (
+                        <div
+                          key={i}
+                          className="px-3 py-1.5 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-shadow"
+                        >
+                          <span className="text-xs font-semibold text-gray-700 uppercase tracking-wide">
+                            {skill}
+                          </span>
+                        </div>
+                      ))}
+                    </motion.div>
+
+                    {/* Bio - More Compact */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                      className="space-y-3 mb-6"
+                    >
+                      {doc.bio.map((paragraph, i) => (
+                        <p
+                          key={i}
+                          className="text-gray-600 leading-relaxed font-light text-sm"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </motion.div>
+
+                    {/* Highlights */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.5 }}
+                      className="grid grid-cols-3 gap-3"
+                    >
+                      {doc.highlights.map((highlight, i) => {
+                        const Icon = highlight.icon;
+                        return (
+                          <div
+                            key={i}
+                            className="p-3 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#D4AF37]/30 transition-all duration-300 text-center group"
+                          >
+                            <Icon
+                              className="mx-auto mb-1.5 group-hover:scale-110 transition-transform"
+                              size={20}
+                              style={{ color: doc.accentColor }}
+                            />
+                            <p className="text-[10px] font-semibold text-gray-700 leading-tight">
+                              {highlight.text}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </motion.div>
+                  </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* ================= VALUES SECTION ================= */}
         <section className="relative py-32 lg:py-40 overflow-hidden">
-          {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black" />
-          <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03]" />
+          {/* Subtle gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FFFCFA] via-[#FFF8F0] to-[#FFFCFA]" />
 
-          {/* Animated background orbs */}
-          <motion.div
-            animate={{
-              x: [0, 30, 0],
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/20 to-[#C21E56]/10 rounded-full blur-3xl"
-          />
+          {/* Background elements */}
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div
+              animate={{
+                x: [0, 50, 0],
+                y: [0, -30, 0],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-[#C21E56]/10 to-transparent rounded-full blur-3xl"
+            />
+            <motion.div
+              animate={{
+                x: [0, -40, 0],
+                y: [0, 40, 0],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-tl from-[#D4AF37]/10 to-transparent rounded-full blur-3xl"
+            />
+          </div>
 
-          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="relative max-w-[1400px] mx-auto px-6 lg:px-16">
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -510,27 +693,27 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-block mb-6"
+                className="inline-block mb-8"
               >
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#C21E56]/30 to-[#D4AF37]/30 rounded-full blur-xl" />
-                  <div className="relative px-6 py-2.5 bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-full">
-                    <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#D4AF37]">
+                  <div className="relative px-6 py-3 bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37]/30 rounded-full shadow-lg">
+                    <span className="text-xs font-bold tracking-[0.25em] uppercase bg-gradient-to-r from-[#C21E56] to-[#D4AF37] bg-clip-text text-transparent">
                       Our Philosophy
                     </span>
                   </div>
                 </div>
               </motion.div>
 
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Beyond Dentistry,
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+                Values That Define
                 <br />
-                <span className="font-light bg-gradient-to-r from-[#D4AF37] via-white to-[#D4AF37] bg-clip-text text-transparent">
-                  Creating Experiences
+                <span className="font-light bg-gradient-to-r from-[#C21E56] via-[#D4AF37] to-[#C21E56] bg-clip-text text-transparent">
+                  Our Excellence
                 </span>
               </h2>
 
-              <p className="font-serif text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
                 Our core values guide every treatment, every interaction, and
                 every smile we create
               </p>
@@ -542,7 +725,7 @@ export default function AboutPage() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10"
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
             >
               {values.map((value, idx) => {
                 const Icon = value.icon;
@@ -550,23 +733,26 @@ export default function AboutPage() {
                   <motion.div
                     key={idx}
                     variants={item}
+                    whileHover={{ y: -8, scale: 1.02 }}
                     className="group relative"
                   >
-                    <div className="relative h-full p-8 lg:p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden">
-                      {/* Glow effect */}
+                    <div className="absolute inset-0 bg-white rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+
+                    <div className="relative h-full p-10 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:border-[#D4AF37]/30 transition-all duration-500 overflow-hidden">
+                      {/* Subtle gradient overlay on hover */}
                       <div
-                        className={`absolute -inset-1 bg-gradient-to-r ${value.gradient} opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-500 rounded-3xl`}
+                        className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                       />
 
                       <div className="relative z-10">
                         {/* Icon */}
                         <motion.div
-                          className="mb-8 inline-block"
+                          className="mb-6 inline-block"
                           whileHover={floatingAnimation}
                         >
                           <div className="relative">
                             <div
-                              className={`absolute inset-0 bg-gradient-to-br ${value.gradient} blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 rounded-2xl`}
+                              className={`absolute inset-0 bg-gradient-to-br ${value.gradient} blur-xl opacity-30 rounded-2xl`}
                             />
                             <div
                               className={`relative p-4 rounded-2xl bg-gradient-to-br ${value.gradient} shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-500`}
@@ -581,19 +767,19 @@ export default function AboutPage() {
                         </motion.div>
 
                         {/* Title */}
-                        <h3 className="text-xl lg:text-2xl font-semibold text-white mb-4">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">
                           {value.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-gray-400 text-sm leading-relaxed font-light">
+                        <p className="text-gray-600 leading-relaxed font-light">
                           {value.desc}
                         </p>
 
-                        {/* Bottom accent line */}
-                        <div className="mt-6 pt-6 border-t border-white/10">
+                        {/* Accent line */}
+                        <div className="mt-8 pt-8 border-t border-gray-100">
                           <div
-                            className={`h-1 w-0 group-hover:w-12 bg-gradient-to-r ${value.gradient} rounded-full transition-all duration-500`}
+                            className={`h-1 w-0 group-hover:w-16 bg-gradient-to-r ${value.gradient} rounded-full transition-all duration-500`}
                           />
                         </div>
                       </div>
@@ -606,30 +792,43 @@ export default function AboutPage() {
         </section>
 
         {/* ================= CTA SECTION ================= */}
-        <section className="relative py-20 lg:py-28 px-6">
-          <div className="max-w-[1400px] mx-auto">
+        <section className="relative py-24 lg:py-32 px-6">
+          <div className="max-w-[1200px] mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center"
+              transition={{ duration: 0.8 }}
+              className="relative"
             >
-              <div className="relative inline-block">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#C21E56]/20 to-[#D4AF37]/20 blur-3xl" />
-                <div className="relative bg-white/90 backdrop-blur-xl p-10 lg:p-14 rounded-3xl border-2 border-[#D4AF37]/20 shadow-2xl">
-                  <Stethoscope className="w-12 h-12 text-[#C21E56] mx-auto mb-6" />
-                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#C21E56]/20 to-[#D4AF37]/20 blur-3xl rounded-3xl" />
+
+              <div className="relative bg-white/95 backdrop-blur-xl p-12 lg:p-16 rounded-3xl border-2 border-[#D4AF37]/20 shadow-2xl text-center overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-full blur-2xl" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-[#C21E56]/10 to-transparent rounded-full blur-2xl" />
+
+                <div className="relative z-10">
+                  <motion.div
+                    animate={floatingAnimation}
+                    className="inline-block mb-8"
+                  >
+                    <Stethoscope className="w-16 h-16 text-[#C21E56]" />
+                  </motion.div>
+
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                     Experience the Tooth Stories Difference
                   </h3>
-                  <p className="text-gray-500 mb-8 max-w-2xl mx-auto font-light">
+
+                  <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                     Let our expert team transform your smile with personalized
-                    care and cutting-edge dentistry
+                    care, cutting-edge technology, and uncompromising excellence
                   </p>
+
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group px-10 py-4 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-full font-bold text-xs tracking-[0.3em] uppercase shadow-2xl shadow-[#C21E56]/30 hover:shadow-[#C21E56]/50 transition-all duration-300"
+                    className="group px-10 py-5 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-full font-bold text-sm tracking-[0.2em] uppercase shadow-2xl shadow-[#C21E56]/30 hover:shadow-[#C21E56]/50 transition-all duration-300"
                   >
                     <span className="flex items-center gap-3">
                       Book Your Consultation
@@ -644,6 +843,20 @@ export default function AboutPage() {
       </main>
 
       <Footer />
+
+      <style jsx global>{`
+        @keyframes shimmer {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+        .animate-shimmer {
+          animation: shimmer 8s linear infinite;
+        }
+      `}</style>
     </>
   );
 }
