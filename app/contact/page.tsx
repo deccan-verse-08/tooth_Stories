@@ -1,5 +1,7 @@
 "use client";
 
+import React, { useState } from "react";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -14,6 +16,7 @@ import {
   MessageCircle,
   Calendar,
   Award,
+  CheckCircle,
 } from "lucide-react";
 
 /* ================= VARIANTS ================= */
@@ -54,6 +57,39 @@ const floatingAnimation = {
 /* ================= COMPONENT ================= */
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    // 1. WhatsApp Logic
+    const phoneNumber = "917666419396";
+    const message = `*New Inquiry via Contact Page* 📩\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Message:* ${formData.message}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp immediately
+    window.open(whatsappUrl, '_blank');
+
+    // 2. Google Sheets Logic (Background)
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIKJUttewGpeD5Wwifiurfh482H2jowz_4gLPdq03mLNJ-Nxs3zoHXZpwbUUkuF_qO/exec";
+    fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(formData) })
+      .catch(err => console.error("Google Sheet Error:", err));
+
+    setStatus('success');
+    setFormData({ name: "", email: "", phone: "", message: "" });
+  };
   const contactMethods = [
     {
       icon: Phone,
@@ -338,65 +374,97 @@ export default function ContactPage() {
                     </div>
 
                     {/* Form */}
-                    <form className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
+                    {status === 'success' ? (
+                      <div className="text-center py-12">
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+                          <CheckCircle className="text-green-600" size={32} />
+                        </div>
+                        <h4 className="text-2xl font-serif font-bold text-gray-900 mb-2">Message Sent!</h4>
+                        <p className="text-gray-500 mb-6">Redirecting you to WhatsApp to complete your request...</p>
+                        <button
+                          onClick={() => setStatus('idle')}
+                          className="text-[#D4AF37] font-bold hover:underline"
+                        >
+                          Send another message
+                        </button>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
+                              Full Name
+                            </label>
+                            <input
+                              type="text"
+                              name="name"
+                              value={formData.name}
+                              onChange={handleInputChange}
+                              required
+                              className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-gray-900 placeholder:text-gray-400"
+                              placeholder="John Doe"
+                            />
+                          </div>
+                          <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
+                              Email Address
+                            </label>
+                            <input
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleInputChange}
+                              required
+                              className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-gray-900 placeholder:text-gray-400"
+                              placeholder="john@example.com"
+                            />
+                          </div>
+                        </div>
+
                         <div className="space-y-2">
                           <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
-                            Full Name
+                            Phone Number
                           </label>
                           <input
-                            type="text"
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            required
                             className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-gray-900 placeholder:text-gray-400"
-                            placeholder="John Doe"
+                            placeholder="+91 XXXXX XXXXX"
                           />
                         </div>
+
                         <div className="space-y-2">
                           <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
-                            Email Address
+                            Your Message
                           </label>
-                          <input
-                            type="email"
-                            className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-gray-900 placeholder:text-gray-400"
-                            placeholder="john@example.com"
+                          <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleInputChange}
+                            rows={5}
+                            className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-gray-900 placeholder:text-gray-400 resize-none"
+                            placeholder="How can we help you smile today?"
                           />
                         </div>
-                      </div>
 
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-gray-900 placeholder:text-gray-400"
-                          placeholder="+91 XXXXX XXXXX"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">
-                          Your Message
-                        </label>
-                        <textarea
-                          rows={5}
-                          className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 outline-none focus:bg-white focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-gray-900 placeholder:text-gray-400 resize-none"
-                          placeholder="How can we help you smile today?"
-                        />
-                      </div>
-
-                      <motion.button
-                        type="submit"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full py-5 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-2xl font-bold tracking-widest uppercase shadow-xl shadow-[#C21E56]/30 hover:shadow-2xl hover:shadow-[#C21E56]/40 transition-all flex items-center justify-center gap-3 group mt-8"
-                      >
-                        Send Your Request
-                        <Send
-                          size={18}
-                          className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                        />
-                      </motion.button>
-                    </form>
+                        <motion.button
+                          type="submit"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          disabled={status === 'loading'}
+                          className="w-full py-5 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-2xl font-bold tracking-widest uppercase shadow-xl shadow-[#C21E56]/30 hover:shadow-2xl hover:shadow-[#C21E56]/40 transition-all flex items-center justify-center gap-3 group mt-8 disabled:opacity-70"
+                        >
+                          {status === 'loading' ? 'Processing...' : 'Send Your Request'}
+                          <Send
+                            size={18}
+                            className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                          />
+                        </motion.button>
+                      </form>
+                    )}
 
                     {/* Features */}
                     <div className="grid grid-cols-3 gap-4 mt-10 pt-10 border-t border-gray-100">
