@@ -218,5 +218,54 @@ export const blogs: Blog[] = [
       "text": "Prioritizing your oral health during pregnancy is a critical part of comprehensive prenatal care. By staying vigilant with your home care routine and attending regular dental appointments, you can prevent common issues, ensure your comfort, and contribute to a healthier outcome for your baby. At Tooth Stories Dental Clinic, we understand the unique needs of expecting mothers and are here to support you every step of the way to a healthy, happy smile throughout your pregnancy and beyond."
     }
   ]
+},
+  {
+  "id": 4,
+  "title": "Dental Fillings: Types and Which Is Best for You",
+  "category": "Restorative Dentistry",
+  "author": "Dr. Vaibhav Harkare",
+  "date": "Feb 13, 2026",
+  "image": "/blogs/dental-fillings.png",
+  "excerpt": "Discovered a cavity? Don't worry. Explore the different types of dental fillings available today and find out which material is the right fit for your smile.",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "When decay creates a hole in your tooth, a dental filling is the standard treatment to restore its function and prevent further damage. At Tooth Stories Dental Clinic, we often find that patients are surprised by the variety of materials available today. Gone are the days when a dark metal filling was the only option. Modern dentistry offers several materials, each with its own set of advantages, durability, and aesthetic appeal. Choosing the right one depends on the location of the cavity, the extent of the decay, and your personal preferences."
+    },
+    {
+      "type": "heading",
+      "text": "Common Types of Filling Materials"
+    },
+    {
+      "type": "paragraph",
+      "text": "The choice of filling material is usually a balance between strength and appearance. While some materials are nearly invisible, others are prized for their ability to withstand the heavy pressure of chewing in the back of the mouth. Understanding these differences helps you make an informed decision during your next visit."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Composite Resins:** Tooth-colored fillings made of glass and plastic. They bond chemically to the tooth structure and are ideal for visible areas.",
+        "**Silver Amalgam:** A durable mixture of metals. While very strong and cost-effective, their dark color makes them better suited for back molars.",
+        "**Ceramic/Porcelain:** Often called inlays or onlays, these are custom-made in a lab. They are highly resistant to staining and very long-lasting.",
+        "**Glass Ionomer:** These release fluoride over time, helping to prevent further decay. They are often used for fillings below the gumline or for children.",
+        "**Gold Fillings:** Exceptionally durable and can last over 20 years, though they are the most expensive option and require multiple visits."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Which Filling Is Right for You?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Selecting the 'best' filling isn't a one-size-fits-all process. If you have a cavity on a front tooth, a composite resin is almost always preferred because it can be matched exactly to your natural tooth shade. For large cavities in the back where chewing force is highest, amalgam or ceramic might be recommended for their superior strength. Your dentist will also consider factors like your budget, any metal allergies, and how much healthy tooth structure remains."
+    },
+    {
+      "type": "heading",
+      "text": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "text": "The goal of any filling is to stop decay in its tracks and return your tooth to its natural strength. Whether you prioritize aesthetics with tooth-colored composites or longevity with ceramics, the most important step is addressing the cavity before it reaches the nerve. At Tooth Stories Dental Clinic, Moshi, we use high-quality materials to ensure your smile stays healthy and functional. If you suspect you have a cavity or haven't had a check-up recently, schedule an appointment today to discuss the best restorative options for you."
+    }
+  ]
 }
 ];
