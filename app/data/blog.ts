@@ -150,5 +150,73 @@ export const blogs: Blog[] = [
       "text": "The holiday season is a wonderful time, and there's no need to completely forgo your favorite festive foods. By being mindful of your oral hygiene routine, making smart snacking choices, and remembering to hydrate, you can enjoy all the celebrations while keeping your smile healthy and bright. Prioritize your dental health, and you'll have one less thing to worry about as you usher in the new year. Happy holidays from Tooth Stories Dental Clinic!"
     }
   ]
+},
+  {
+  "id": 3,
+  "title": "Dental Care During Pregnancy: A Guide for Expecting Mothers",
+  "category": "Maternal Health",
+  "author": "Dr. Snehal Kulkarni",
+  "date": "Dec 20, 2025",
+  "image": "/blogs/pregnancy-dental-care.png",
+  "excerpt": "Pregnancy brings many changes, and your oral health is no exception. Learn why dental care is crucial during this special time for both mother and baby.",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Pregnancy is a remarkable journey filled with many changes, both visible and invisible. While much attention is rightly given to diet, exercise, and prenatal check-ups, oral health during pregnancy often goes overlooked. However, hormonal shifts, dietary changes, and increased sensitivity can significantly impact your teeth and gums. Maintaining excellent dental hygiene during this period is not just about your comfort; it's vital for the health of both you and your developing baby."
+    },
+    {
+      "type": "heading",
+      "text": "Why Oral Health Matters During Pregnancy"
+    },
+    {
+      "type": "paragraph",
+      "text": "Hormonal fluctuations during pregnancy, particularly increased progesterone and estrogen, can make your gums more susceptible to inflammation, bleeding, and swelling—a condition commonly known as 'pregnancy gingivitis.' If left untreated, this can progress to more serious periodontal disease, which some studies have linked to adverse pregnancy outcomes like preterm birth and low birth weight. Additionally, morning sickness can expose teeth to stomach acids, leading to enamel erosion, and increased snacking can raise the risk of cavities. Regular dental care helps manage these risks effectively."
+    },
+    {
+      "type": "heading",
+      "text": "Common Oral Health Issues in Pregnancy"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Pregnancy Gingivitis:** Swollen, tender, and bleeding gums due to hormonal changes.",
+        "**Periodontal Disease:** If gingivitis worsens, it can affect the bone supporting teeth.",
+        "**Cavities:** Increased cravings for sugary foods and acid exposure from morning sickness can heighten cavity risk.",
+        "**Enamel Erosion:** Frequent vomiting can expose teeth to stomach acids, weakening enamel.",
+        "**Pregnancy Tumors (Pyogenic Granuloma):** Non-cancerous growths on the gums, usually painless and often disappearing after birth."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Safe Dental Treatments for Expecting Mothers"
+    },
+    {
+      "type": "paragraph",
+      "text": "It's a common misconception that dental work should be avoided during pregnancy. In fact, routine check-ups and cleanings are not only safe but highly recommended. Most dental procedures, including fillings and root canals, can be performed safely, especially during the second trimester. Local anesthetics are generally safe, and your dentist will choose medications that pose minimal risk. It's crucial to inform your dentist that you are pregnant and discuss any medications you are taking or any specific concerns you have. Elective procedures like teeth whitening are usually best postponed until after delivery."
+    },
+    {
+      "type": "heading",
+      "text": "Tips for Maintaining Oral Health While Pregnant"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**Brush Twice Daily:** Use a soft-bristle toothbrush and fluoride toothpaste.",
+        "**Floss Daily:** Essential for removing plaque and food particles between teeth and under the gum line.",
+        "**Regular Dental Check-ups:** Schedule at least one visit during your pregnancy for a cleaning and examination.",
+        "**Rinse After Morning Sickness:** If you experience vomiting, rinse your mouth with water or a fluoride mouthwash to neutralize acids.",
+        "**Eat a Balanced Diet:** Limit sugary snacks and drinks; opt for nutrient-rich foods beneficial for both you and your baby.",
+        "**Address Concerns Promptly:** Don't ignore symptoms like bleeding gums or toothache; contact your dentist immediately."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prioritizing your oral health during pregnancy is a critical part of comprehensive prenatal care. By staying vigilant with your home care routine and attending regular dental appointments, you can prevent common issues, ensure your comfort, and contribute to a healthier outcome for your baby. At Tooth Stories Dental Clinic, we understand the unique needs of expecting mothers and are here to support you every step of the way to a healthy, happy smile throughout your pregnancy and beyond."
+    }
+  ]
 }
 ];
