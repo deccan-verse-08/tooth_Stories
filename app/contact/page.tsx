@@ -534,7 +534,7 @@ export default function ContactPage() {
                           <p className="text-gray-600 text-sm leading-relaxed">
                             B 319, Barcode,
                             Borate-Jambhulkar Chowk,<br />
-                            Shiv Rd, Bhoradewadi, Moshi,
+                            Shiv Road, Bhoradewadi, Moshi,
                             Pimpri-Chinchwad, Maharashtra.<br />
                           </p>
                         </div>
