@@ -132,15 +132,15 @@ export default function Hero() {
         <>
           <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.015]" />
 
-          <div className="relative max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center w-full">
+          <div className="relative max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center w-full">
             <motion.div
               variants={container}
               initial="hidden"
               animate="show"
-              className="flex flex-col gap-6 z-10 max-w-[480px]"
+              className="flex flex-col gap-6 z-10 max-w-[540px] 2xl:max-w-3xl"
             >
               <motion.div variants={item} className="flex items-center gap-4">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#C21E56] font-bold">
+                <span className="text-[10px] 2xl:text-xs uppercase tracking-[0.3em] text-[#C21E56] font-bold">
                   Trusted Dental Clinic
                 </span>
                 <div className="flex gap-1">
@@ -148,7 +148,7 @@ export default function Hero() {
                     <Star
                       key={i}
                       size={11}
-                      className="fill-[#D4AF37] text-[#D4AF37]"
+                      className="fill-[#D4AF37] text-[#D4AF37] 2xl:w-4 2xl:h-4"
                     />
                   ))}
                 </div>
@@ -156,7 +156,7 @@ export default function Hero() {
 
               <motion.h1
                 variants={item}
-                className="text-5xl xl:text-[68px] font-extrabold tracking-tight text-gray-900 leading-[1.1]"
+                className="text-5xl xl:text-[68px] 2xl:text-[90px] font-extrabold tracking-tight text-gray-900 leading-[1.1]"
               >
                 Beautiful Smiles,
                 <br />
@@ -165,7 +165,7 @@ export default function Hero() {
 
               <motion.p
                 variants={item}
-                className="max-w-md text-base text-gray-600 leading-relaxed font-medium"
+                className="max-w-md 2xl:max-w-xl text-base 2xl:text-xl text-gray-600 leading-relaxed font-medium"
               >
                 At Tooth Stories, we combine advanced dental science and a calm
                 philosophy to deliver natural, effortless smiles.
@@ -177,19 +177,19 @@ export default function Hero() {
               >
                 <Link
                   href="/contact"
-                  className="px-8 py-4 rounded-full bg-[#C21E56] text-white text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#A01845] transition-all shadow-lg"
+                  className="px-8 py-4 2xl:px-10 2xl:py-5 rounded-full bg-[#C21E56] text-white text-[10px] 2xl:text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#A01845] transition-all shadow-lg"
                 >
                   Book Now
                 </Link>
 
                 <Link
                   href="/services"
-                  className="flex items-center gap-2 px-8 py-4 rounded-full border border-gray-200 text-gray-900 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-gray-50 transition-all group"
+                  className="flex items-center gap-2 px-8 py-4 2xl:px-10 2xl:py-5 rounded-full border border-gray-200 text-gray-900 text-[10px] 2xl:text-sm font-bold tracking-[0.2em] uppercase hover:bg-gray-50 transition-all group"
                 >
                   Treatments
                   <ArrowRight
                     size={14}
-                    className="group-hover:translate-x-1 transition-transform"
+                    className="group-hover:translate-x-1 transition-transform 2xl:w-5 2xl:h-5"
                   />
                 </Link>
               </motion.div>
@@ -199,14 +199,14 @@ export default function Hero() {
                 className="flex gap-6 pt-4 text-gray-400"
               >
                 <div className="flex items-center gap-2">
-                  <ShieldCheck size={16} className="text-[#D4AF37]" />
-                  <span className="text-[9px] uppercase tracking-widest font-bold">
+                  <ShieldCheck size={16} className="text-[#D4AF37] 2xl:w-6 2xl:h-6" />
+                  <span className="text-[9px] 2xl:text-xs uppercase tracking-widest font-bold">
                     Safe & Certified
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award size={16} className="text-[#D4AF37]" />
-                  <span className="text-[9px] uppercase tracking-widest font-bold">
+                  <Award size={16} className="text-[#D4AF37] 2xl:w-6 2xl:h-6" />
+                  <span className="text-[9px] 2xl:text-xs uppercase tracking-widest font-bold">
                     Expert Doctors
                   </span>
                 </div>
@@ -218,7 +218,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative justify-self-center lg:justify-self-end w-full max-w-[420px]"
+              className="relative justify-self-center lg:justify-self-end w-full max-w-[420px] 2xl:max-w-[600px]"
             >
               <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2rem] border border-gray-100 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.15)] bg-gray-50">
                 <AnimatePresence initial={false}>
@@ -247,12 +247,12 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="absolute -bottom-6 -left-4 bg-white/95 backdrop-blur-md p-5 rounded-xl border border-gray-50 shadow-xl z-20"
+                className="absolute -bottom-6 -left-4 bg-white/95 backdrop-blur-md p-5 2xl:p-8 rounded-xl border border-gray-50 shadow-xl z-20"
               >
-                <p className="text-[9px] uppercase tracking-[0.2em] font-bold text-[#C21E56]">
+                <p className="text-[9px] 2xl:text-xs uppercase tracking-[0.2em] font-bold text-[#C21E56]">
                   Our Promise
                 </p>
-                <p className="mt-1.5 text-xs text-gray-700 font-semibold leading-tight">
+                <p className="mt-1.5 text-xs 2xl:text-base text-gray-700 font-semibold leading-tight">
                   Gentle Care. <br /> Honest Results.
                 </p>
               </motion.div>
