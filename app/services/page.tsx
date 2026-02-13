@@ -224,6 +224,18 @@ const services = [
     bgGradient: "from-purple-50 to-fuchsia-50",
     shadow: "purple-500/20",
   },
+  {
+    id: "periodontal-treatment",
+    title: "Gum Care & Periodontics",
+    category: "Periodontics",
+    description: "Protect the foundation of your teeth with expert gum disease treatment.",
+    details: "Healthy gums are essential for a lasting smile. Our periodontal services focus on preventing and treating gum disease through deep cleaning, scaling, and root planing. We help you maintain strong, healthy gums to prevent tooth loss and ensure total oral hygiene.",
+    image: "/Gum_Care.png",
+    icon: Activity,
+    gradient: "from-rose-500 to-red-600",
+    bgGradient: "from-rose-50 to-red-50",
+    shadow: "rose-500/20",
+  },
 ];
 
 const processes = [
