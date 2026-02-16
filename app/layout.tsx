@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ToothStories | Luxury Dental Care",
+  title: "ToothStories | Best Dental clinic & Luxury Dental Care in Moshi",
   description: "Experience premium dental care with advanced technology and a gold standard of service. Every smile tells a story at ToothStories.",
   keywords: "dental care, luxury dentistry, smile makeover, dental implants, teeth whitening",
 };
