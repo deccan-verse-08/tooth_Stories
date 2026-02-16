@@ -122,22 +122,41 @@ export default function Header() {
             ))}
           </div>
 
-          <Link
-            href="/contact"
-            className="bg-[#111] text-white px-8 py-3 rounded-full font-bold text-[11px] tracking-[0.2em] uppercase hover:bg-[#C21E56] transition-all active:scale-95 flex items-center gap-2 shadow-lg"
-          >
-            <Phone size={14} />
-            Book Now
-          </Link>
+          <div className="flex items-center gap-6">
+            <a
+              href="tel:+917666419396"
+              className="hidden xl:flex items-center gap-2 text-xs font-bold tracking-widest text-gray-600 hover:text-[#D4AF37] transition-colors"
+            >
+              <Phone size={14} className="text-[#D4AF37]" />
+              +91 76664 19396
+            </a>
+
+            <Link
+              href="/contact"
+              className="bg-[#111] text-white px-8 py-3 rounded-full font-bold text-[11px] tracking-[0.2em] uppercase hover:bg-[#C21E56] transition-all active:scale-95 flex items-center gap-2 shadow-lg"
+            >
+              <Phone size={14} />
+              Book Now
+            </Link>
+          </div>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden p-2 text-gray-900"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
-        </button>
+        {/* Mobile Actions */}
+        <div className="md:hidden flex items-center gap-4">
+          <a
+            href="tel:+917666419396"
+            className="p-2 text-gray-900 hover:text-[#D4AF37] transition-colors"
+          >
+            <Phone size={24} />
+          </a>
+
+          <button
+            className="p-2 text-gray-900"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+          </button>
+        </div>
       </nav>
       {/* Location Strip */}
       {/* <div className="w-full bg-[#edac81] border-t border-[#D4AF37]/20">
@@ -177,6 +196,13 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
+          <a
+            href="tel:+917666419396"
+            className="flex items-center justify-center gap-2 text-lg font-bold text-gray-800 tracking-widest uppercase py-2"
+          >
+            <Phone size={20} className="text-[#D4AF37]" />
+            +91 76664 19396
+          </a>
           <Link
             href="/contact"
             onClick={() => setIsMenuOpen(false)}
