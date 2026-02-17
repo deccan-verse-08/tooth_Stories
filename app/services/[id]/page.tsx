@@ -8,10 +8,13 @@ import { services } from "@/lib/servicesData";
 import { Metadata } from "next";
 
 type Props = {
-  // Since the folder is [id], the key here must be id
   params: Promise<{ id: string }>;
 };
 
+/**
+ * SEO Metadata Generator
+ * Excel file se meta tags pick karta hai
+ */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const service = services.find((s) => s.id === id);
@@ -19,12 +22,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return { title: "Service Not Found" };
 
   return {
-    title: `${service.title} | Premium Dental Care`,
-    description: service.description,
+    // Excel tags use honge, agar nahi mile toh default title/desc use hoga
+    title:
+      service.seo?.title || `${service.title} | Tooth Stories Dental Clinic`,
+    description: service.seo?.description || service.description,
+    openGraph: {
+      title: service.seo?.title || service.title,
+      description: service.seo?.description || service.description,
+      images: [service.image],
+    },
   };
 }
 
-// This helps Next.js pre-render all service pages at build time
+/**
+ * Static paths generate karta hai build time par
+ */
 export async function generateStaticParams() {
   return services.map((service) => ({
     id: service.id,
@@ -39,31 +51,34 @@ export default async function ServicePage({ params }: Props) {
     notFound();
   }
 
-  const Icon = service.icon;
-
   return (
     <>
       <Header />
       <main className="bg-gradient-to-b from-[#FFFCFA] via-white to-[#FFF5F0] min-h-screen">
         <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-          {/* Background Accents */}
+          {/* Background Decor */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#D4AF37]/10 to-transparent rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#C21E56]/10 to-transparent rounded-full blur-3xl" />
           </div>
 
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto relative z-10">
+            {/* Back Button */}
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-gray-500 hover:text-[#C21E56] transition-colors mb-8 text-sm font-bold tracking-widest uppercase"
+              className="inline-flex items-center gap-2 text-gray-500 hover:text-[#C21E56] transition-colors mb-8 text-sm font-bold tracking-widest uppercase group"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft
+                size={16}
+                className="group-hover:-translate-x-1 transition-transform"
+              />
               Back to All Services
             </Link>
 
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Image with Decorative Border */}
+              {/* Left Side: Image */}
               <div className="relative">
-                <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl z-10">
+                <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl z-10 border-4 border-white">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -71,24 +86,30 @@ export default async function ServicePage({ params }: Props) {
                     className="object-cover"
                     priority
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
-                {/* Decorative gold frame behind image */}
-                <div className="absolute -top-4 -right-4 w-full h-full border-2 border-[#D4AF37]/20 rounded-[2rem] -z-0" />
+                {/* Decorative Frame */}
+                <div className="absolute -top-4 -right-4 w-full h-full border-2 border-[#D4AF37]/30 rounded-[2.5rem] -z-0" />
+
+                {/* Floating Service Icon */}
+                <div className="absolute -bottom-6 -left-6 p-6 rounded-2xl bg-white shadow-2xl hidden md:block border border-gray-100">
+                  <service.icon size={40} className="text-[#C21E56]" />
+                </div>
               </div>
 
-              {/* Content */}
-              <div className="relative z-10">
+              {/* Right Side: Content */}
+              <div className="relative">
                 <div className="inline-block mb-6">
                   <div
-                    className={`px-4 py-2 bg-gradient-to-r ${service.bgGradient} rounded-full border border-gray-100 shadow-sm`}
+                    className={`px-5 py-2 bg-gradient-to-r ${service.bgGradient} rounded-full border border-white shadow-sm`}
                   >
-                    <span className="text-xs font-bold tracking-wider uppercase text-gray-700">
+                    <span className="text-xs font-bold tracking-widest uppercase text-gray-700">
                       {service.category}
                     </span>
                   </div>
                 </div>
 
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                   {service.title}
                 </h1>
 
@@ -96,21 +117,21 @@ export default async function ServicePage({ params }: Props) {
                   {service.description}
                 </p>
 
-                <div className="prose prose-lg prose-gray mb-10 text-gray-600">
+                <div className="prose prose-lg prose-gray mb-10 text-gray-600 leading-relaxed">
                   <p>{service.details}</p>
                 </div>
 
-                {/* Features List */}
-                <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8 mb-12">
+                {/* Key Points */}
+                <div className="grid sm:grid-cols-2 gap-4 mb-12">
                   {[
-                    "Modern Tech",
-                    "Painless Care",
-                    "Expert Doctors",
-                    "Aftercare",
+                    "Personalized Treatment",
+                    "Expert Specialists",
+                    "Modern Technology",
+                    "Safe & Painless",
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3">
                       <div
-                        className={`p-1 rounded-full bg-gradient-to-r ${service.gradient}`}
+                        className={`p-1.5 rounded-full bg-gradient-to-r ${service.gradient}`}
                       >
                         <Check size={14} className="text-white" />
                       </div>
@@ -119,21 +140,21 @@ export default async function ServicePage({ params }: Props) {
                   ))}
                 </div>
 
-                {/* Call to Actions */}
+                {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/contact"
-                    className="px-8 py-4 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-full font-bold text-xs tracking-[0.2em] uppercase shadow-lg shadow-[#C21E56]/30 hover:scale-[1.02] transition-all text-center flex items-center justify-center gap-2"
+                    className="px-10 py-5 bg-gradient-to-r from-[#C21E56] to-[#A01845] text-white rounded-full font-bold text-xs tracking-[0.2em] uppercase shadow-xl shadow-[#C21E56]/30 hover:scale-105 transition-all text-center flex items-center justify-center gap-2"
                   >
-                    <Calendar size={16} />
-                    Book Consultation
+                    <Calendar size={18} />
+                    Book Appointment
                   </Link>
                   <a
-                    href="tel:+911234567890"
-                    className="px-8 py-4 bg-white border-2 border-gray-100 text-gray-900 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-[#D4AF37] transition-all text-center flex items-center justify-center gap-2"
+                    href="tel:+917666419396"
+                    className="px-10 py-5 bg-white border-2 border-gray-100 text-gray-900 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all text-center flex items-center justify-center gap-2"
                   >
-                    <Phone size={16} />
-                    Speak to Specialist
+                    <Phone size={18} />
+                    Call Us
                   </a>
                 </div>
               </div>

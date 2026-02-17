@@ -90,6 +90,11 @@ const services = [
     gradient: "from-emerald-500 to-teal-600",
     bgGradient: "from-emerald-50 to-teal-50",
     shadow: "emerald-500/20",
+    seo: {
+      title: "Dental Check-up in Moshi | Tooth Stories Dental Clinic",
+      description:
+        "Need a routine dental check-up in Moshi? Dr. Vaibhav Harkare provides detailed exams and preventive care at Tooth Stories. Schedule today.",
+    },
   },
   {
     id: "x-rays",
@@ -102,6 +107,11 @@ const services = [
     gradient: "from-cyan-500 to-sky-600",
     bgGradient: "from-cyan-50 to-sky-50",
     shadow: "cyan-500/20",
+    seo: {
+      title: "Dental X-ray in Moshi, PCMC | Tooth Stories Dental Clinic",
+      description:
+        "Get precise dental X-rays in Moshi for quick diagnosis and better treatment planning. Visit Tooth Stories. Book now.",
+    },
   },
   {
     id: "teeth-cleaning",
@@ -114,6 +124,11 @@ const services = [
     gradient: "from-purple-500 to-fuchsia-600",
     bgGradient: "from-purple-50 to-fuchsia-50",
     shadow: "purple-500/20",
+    seo: {
+      title: "Teeth Cleaning in Moshi | Tooth Stories Dental Clinic",
+      description:
+        "Remove stains and tartar with professional teeth cleaning in Moshi by Dr. Vaibhav. Gentle, safe, effective. Call to book today.",
+    },
   },
   {
     id: "tooth-filling",
@@ -126,6 +141,11 @@ const services = [
     gradient: "from-[#D4AF37] to-[#C4A030]",
     bgGradient: "from-[#D4AF37]/5 to-[#C4A030]/5",
     shadow: "[#D4AF37]/20",
+    seo: {
+      title: "Cavity Tooth Filling in Moshi | Expert Dentist",
+      description:
+        "Have a cavity? Get safe and long-lasting tooth filling in Moshi by Dr. Vaibhav Harkare at Tooth Stories. Quick, comfortable care. Book now.",
+    },
   },
   {
     id: "teeth-whitening",
@@ -138,6 +158,11 @@ const services = [
     gradient: "from-rose-500 to-pink-600",
     bgGradient: "from-rose-50 to-pink-50",
     shadow: "rose-500/20",
+    seo: {
+      title: "Teeth Whitening in Moshi | Bright Smile Experts",
+      description:
+        "Want a whiter smile? Try advanced teeth whitening in Moshi at Tooth Stories Dental Clinic. Quick, safe results. Reserve today.",
+    },
   },
   {
     id: "root-canal",
@@ -150,6 +175,11 @@ const services = [
     gradient: "from-emerald-500 to-teal-600",
     bgGradient: "from-emerald-50 to-teal-50",
     shadow: "emerald-500/20",
+    seo: {
+      title: "Root Canal Treatment in Moshi | Dr. Vaibhav Harkare",
+      description:
+        "Tooth pain? Get painless root canal treatment in Moshi from Dr. Vaibhav Harkare. Save your natural tooth. Book appointment.",
+    },
   },
   {
     id: "tooth-extraction",
@@ -162,6 +192,11 @@ const services = [
     gradient: "from-cyan-500 to-sky-600",
     bgGradient: "from-cyan-50 to-sky-50",
     shadow: "cyan-500/20",
+    seo: {
+      title: "Tooth Extraction in Moshi | Gentle Dental Care",
+      description:
+        "Need a safe tooth extraction in Moshi? Our experienced team ensures a smooth, stress-free procedure. Call today.",
+    },
   },
   {
     id: "crowns-bridges",
@@ -174,6 +209,11 @@ const services = [
     gradient: "from-[#D4AF37] to-[#C4A030]",
     bgGradient: "from-[#D4AF37]/5 to-[#C4A030]/5",
     shadow: "[#D4AF37]/20",
+    seo: {
+      title: "Dental Crowns & Bridges in Moshi | Tooth Stories Dental Clinic",
+      description:
+        "Restore damaged or missing teeth with crowns & bridges in Moshi at Tooth Stories. Strong, natural-looking results. Book now.",
+    },
   },
   {
     id: "cosmetic-treatment",
@@ -186,6 +226,11 @@ const services = [
     gradient: "from-purple-500 to-fuchsia-600",
     bgGradient: "from-purple-50 to-fuchsia-50",
     shadow: "purple-500/20",
+    seo: {
+      title: "Cosmetic Dentist in Moshi | Smile Makeover | Dr. Snehal Kulkarni",
+      description:
+        "Enhance your smile with cosmetic dentistry in Moshi. Visit Tooth Stories for veneers, reshaping & more. Schedule now.",
+    },
   },
   {
     id: "dental-implants",
@@ -197,6 +242,11 @@ const services = [
     gradient: "from-rose-500 to-pink-600",
     bgGradient: "from-rose-50 to-pink-50",
     shadow: "rose-500/20",
+    seo: {
+      title: "Dental Implants in Moshi | Dr. Vaibhav Harkare",
+      description:
+        "Replace missing teeth permanently with dental implants in Moshi by Dr. Vaibhav. Modern techniques, lasting comfort. Book today.",
+    },
   },
   {
     id: "pediatric-treatment",
@@ -209,6 +259,11 @@ const services = [
     gradient: "from-cyan-500 to-sky-600",
     bgGradient: "from-cyan-50 to-sky-50",
     shadow: "cyan-500/20",
+    seo: {
+      title: "Pediatric Dentist in Moshi | Kids Dental Care at Tooth Stories",
+      description:
+        "Caring pediatric dentist in Moshi for kids of all ages. Gentle treatment and friendly visits at Tooth Stories. Call today.",
+    },
   },
   {
     id: "orthodontic-treatment",
@@ -221,6 +276,11 @@ const services = [
     gradient: "from-purple-500 to-fuchsia-600",
     bgGradient: "from-purple-50 to-fuchsia-50",
     shadow: "purple-500/20",
+    seo: {
+      title: "Orthodontic Treatment in Moshi | Dr. Snehal Kulkarni",
+      description:
+        "Straighten teeth with expert orthodontic treatment in Moshi by Dr. Snehal Kulkarni. Braces & aligners available. Book now.",
+    },
   },
   {
     id: "periodontal-treatment",
@@ -233,9 +293,13 @@ const services = [
     gradient: "from-rose-500 to-red-600",
     bgGradient: "from-rose-50 to-red-50",
     shadow: "rose-500/20",
+    seo: {
+      title: "Gum Care & Periodontics in Moshi | Tooth Stories",
+      description:
+        "Protect your oral health with expert gum care and periodontal treatment in Moshi. Healthy gums, healthy smile. Schedule your visit today.",
+    },
   },
 ];
-
 const processes = [
   {
     step: "01",
