@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Phone, Instagram, Facebook, Linkedin, ArrowUp } from "lucide-react";
+import { Phone, Instagram, Facebook, Linkedin, ArrowUp, InstagramIcon, FacebookIcon } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -45,7 +45,25 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-5 pt-2">
-              {[Instagram, Facebook, Linkedin].map((Icon, i) => (
+
+              <a
+                  href="https://www.instagram.com/tooth_stories_7"
+                  className="text-gray-500 hover:text-[#D4AF37] transform hover:-translate-y-1 transition-all duration-300"
+                  target="_blank"
+                >
+                  <InstagramIcon size={20} strokeWidth={1.5} />
+                </a>
+
+                <a
+                  href="https://www.facebook.com/toothstoriesclinic"
+                  className="text-gray-500 hover:text-[#D4AF37] transform hover:-translate-y-1 transition-all duration-300"
+                  target="_blank"
+                >
+                  <FacebookIcon size={20} strokeWidth={1.5} />
+                </a>
+
+
+              {[Linkedin].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
